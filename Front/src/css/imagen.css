@@ -1,0 +1,61 @@
+.imgSize{
+
+    width:auto;
+}
+
+.imgSizeMenu{
+
+    width: 100%;
+
+}
+
+.modal-header {
+    background: #945d60;
+    opacity: 0.6;
+    color: #ffff;
+}
+.modal-footer {
+    background: #945d60; 
+    opacity: 0.6;
+}
+
+.display-1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+    color: #af473c;
+    margin-top: 20px;
+}
+
+.btn {
+    background: #af473c;
+}
+
+.form-select {
+    background: #4f644b;
+    opacity: 0.6;
+    color: #ffff;
+}
+
+    @media (min-width: 576px) { 
+        .imgSize{
+
+        width:auto;
+        height: 160px;
+    }
+}
+ 
+    @media (min-width: 768px) { 
+        .imgSize{
+
+        width:auto;
+        height: 200px;
+    } }
+    
+    @media (min-width: 992px) {      
+      .imgSize{
+
+        width:auto;
+        height: 400px;
+    } }
+    
+  

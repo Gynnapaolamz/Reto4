@@ -1,0 +1,14 @@
+.container-mapa {
+    width: 100%;
+    max-width: auto;
+    text-align: center;
+    padding: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.container-mp {
+    display: grid;
+    grid-template-columns: 150px 150px 150px 150px 150px ;
+    grid-gap: 10px;
+}

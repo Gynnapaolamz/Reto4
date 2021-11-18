@@ -1,0 +1,110 @@
+
+#carouselExampleFade {
+    width: auto;    
+}
+.carousel-item {
+    width: min-content;
+    
+}
+
+.nosotros {
+    width: 100%;
+    justify-content:flex-start
+}
+
+
+footer {
+    background: rgb(66, 27, 29);
+    color: white
+}
+.logo-footer {
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+.social{
+    position: fixed;
+    right: 0;
+    top: 150px;
+    z-index:1;
+}
+.social ul{
+    list-style: none;
+}
+.social ul li a{
+
+    display: inline-block;
+    color: #FFF;
+    background: rgb(255, 115, 1);
+    padding: 10px 15px;
+    text-decoration: none;
+}
+.porcentajeMapa{
+    width: 20%;
+  }
+  
+  .porcentajeImagen{
+    width: 20%;
+  }
+  
+
+  .porcentaje{
+    width: 37%;
+  }
+  .datos{
+    padding: 15px;
+  }
+  .letras{
+  color: #fff;
+}
+
+.container-2{
+    
+    background-size: cover;
+    color: white;
+    background-repeat: no-repeat;
+}
+    .evento {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 4px;
+        margin: 5px;
+        padding: 5px;
+        
+    }
+    
+.evento-text {
+    justify-items: start;
+}
+
+.row {
+     margin: 15px;
+     text-align: center;
+     
+}
+
+.img-menu {
+    max-width:200px;
+    width: auto;
+    height: auto;
+    margin: 15px;
+    margin-top: 15px;
+    
+}
+.menu {
+    max-height: 400px;
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+
+.img-evento {
+    width: 150px;
+    height: auto;
+}
+
+h5 {
+    font-weight: bolder;
+    margin: 10px;
+} 
+
