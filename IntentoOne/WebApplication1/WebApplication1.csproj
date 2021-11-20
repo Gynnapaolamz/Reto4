@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\Servicio.cs" />
+    <Compile Remove="Controllers\ValuesController.cs" />
+    <Compile Remove="Models\Class.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.21" />
+    <PackageReference Include="MySql.Data" Version="8.0.27" />
+  </ItemGroup>
+
+
+</Project>
