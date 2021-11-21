@@ -21,13 +21,12 @@ namespace WebApplication1.Controllers
         }
 
         //CONSULTA
-        [HttpGet]
-        public JsonResult Get()
+        [HttpGet("{id}")]
+        public JsonResult Get(int id)
         {
             string query = @"
                         select id,nombre,descripcion,imagen,precio,Restaurante_id
-                        from 
-                        Plato
+                        from Plato where id=@Restaurante_id;
             ";
 
             DataTable table = new DataTable();
@@ -93,7 +92,6 @@ namespace WebApplication1.Controllers
                         imagen =@PlatoImagen,
                         Restaurante_id=@PlatoRestauranteId
                         where id =@PlatoId;
-                        
             ";
 
             DataTable table = new DataTable();

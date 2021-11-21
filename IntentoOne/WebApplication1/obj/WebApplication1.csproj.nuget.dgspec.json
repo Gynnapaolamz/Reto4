@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ACER\\Documents\\VISUALc#\\IntentoOne\\WebApplication1\\WebApplication1.csproj": {}
+    "C:\\Users\\pekka\\Documents\\GitHub\\Reto4\\IntentoOne\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ACER\\Documents\\VISUALc#\\IntentoOne\\WebApplication1\\WebApplication1.csproj": {
+    "C:\\Users\\pekka\\Documents\\GitHub\\Reto4\\IntentoOne\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ACER\\Documents\\VISUALc#\\IntentoOne\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\pekka\\Documents\\GitHub\\Reto4\\IntentoOne\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "C:\\Users\\ACER\\Documents\\VISUALc#\\IntentoOne\\WebApplication1\\WebApplication1.csproj",
-        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ACER\\Documents\\VISUALc#\\IntentoOne\\WebApplication1\\obj\\",
+        "projectPath": "C:\\Users\\pekka\\Documents\\GitHub\\Reto4\\IntentoOne\\WebApplication1\\WebApplication1.csproj",
+        "packagesPath": "C:\\Users\\pekka\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pekka\\Documents\\GitHub\\Reto4\\IntentoOne\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pekka\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -59,6 +59,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.21, 3.1.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"

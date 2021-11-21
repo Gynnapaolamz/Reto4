@@ -22,13 +22,13 @@ namespace WebApplication1.Controllers
 
 
         //CONSULTA
-        [HttpGet]
-        public JsonResult Get()
+        [HttpGet("{id]")]
+        public JsonResult Get(int id)
         {
             string query = @"
                         select id,nombre,descripcion,imagen,Restaurante_id
                         from 
-                        Empleado
+                        Empleado where id=@EmpleadoId;
             ";
 
             DataTable table = new DataTable();

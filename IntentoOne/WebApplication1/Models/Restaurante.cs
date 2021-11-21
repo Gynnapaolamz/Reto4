@@ -6,14 +6,11 @@ namespace WebApplication1.Models
     {
         internal object id;
         internal object nombre;
-        internal object imagen;
         internal object descripcion;
-        internal object restaurante_Id;
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Imagen { get; set; }
         public string Descripcion { get; set; }
-        public int Restaurante_Id { get; set; }
+    }
     }
 }
