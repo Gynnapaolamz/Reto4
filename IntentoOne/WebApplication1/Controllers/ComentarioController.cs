@@ -10,11 +10,11 @@ namespace WebApplication1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ServicioController : ControllerBase
+    public class ComentarioController : ControllerBase
     {
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _env;
-        public ServicioController(IConfiguration configuration, IWebHostEnvironment env)
+        public ComentarioController(IConfiguration configuration, IWebHostEnvironment env)
         {
             _configuration = configuration;
             _env = env;
@@ -25,9 +25,9 @@ namespace WebApplication1.Controllers
         public JsonResult Get()
         {
             string query = @"
-                        select id,nombre,descripcion,imagen
+                        select id,comentario,Cliente_id
                         from 
-                        Servicio
+                        Comentario
             ";
 
             DataTable table = new DataTable();
@@ -55,9 +55,9 @@ namespace WebApplication1.Controllers
         public JsonResult Get(int id)
         {
             string query = @"
-                        select id,nombre,descripcion,imagen
-                        from Servicio
-                        where id=@ServicioId;
+                        select id,comentario,Cliente_id
+                        from Comentario
+                        where id=@ComentarioId;
             ";
 
             DataTable table = new DataTable();
@@ -68,7 +68,7 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@ServicioId", id);
+                    myCommand.Parameters.AddWithValue("@ComentarioId", id);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
 
@@ -85,8 +85,8 @@ namespace WebApplication1.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                        delete from Servicio 
-                        where id=@ServicioId;
+                        delete from Comentario 
+                        where id=@ComentarioId;
                         
             ";
 
@@ -98,7 +98,7 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@ServicioId", id);
+                    myCommand.Parameters.AddWithValue("@ComentarioId", id);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -113,16 +113,14 @@ namespace WebApplication1.Controllers
 
         //ACTUALIZACIÓN
 
-
         [HttpPut("{id}")]
-        public JsonResult Put(Servicio ser, int id)
+        public JsonResult Put(Comentario com, int id)
         {
             string query = @"
-                        update Servicio set 
-                        nombre =@ServicioNombre,
-                        descripcion =@ServicioDescripcion,
-                        imagen =@ServicioImagen           
-                        where id =@ServicioId;
+                        update Comentario set 
+                        comentario =@ComentarioComentario,
+                        Cliente_id =@ComentarioCliente_id,
+                        where id =@ComentarioId;
                         
             ";
 
@@ -134,10 +132,10 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@ServicioId", ser.id);
-                    myCommand.Parameters.AddWithValue("@ServicioNombre", ser.nombre);
-                    myCommand.Parameters.AddWithValue("@ServicioDescripcion", ser.descripcion);
-                    myCommand.Parameters.AddWithValue("@ServicioImagen", ser.imagen);
+                    myCommand.Parameters.AddWithValue("@ComentarioId", com.id);
+                    myCommand.Parameters.AddWithValue("@ComentarioComentario", com.comentario);
+                    myCommand.Parameters.AddWithValue("@ComentarioCliente_id", com.Cliente_id);
+
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -152,13 +150,13 @@ namespace WebApplication1.Controllers
         //CREACIÓN
 
         [HttpPost]
-        public JsonResult Post(Models.Servicio ser)
+        public JsonResult Post(Models.Comentario com)
         {
             string query = @"
-                        insert into Servicio 
-                        (nombre,descripcion,imagen) 
+                        insert into Comentario 
+                        (comentario,descripcion) 
                         values
-                         (@ServicioNombre,@ServicioDescripcion,@ServicioImagen) ;
+                         (@ComentarioComentario,@ComentarioCliente_id) ;
                         
             ";
 
@@ -170,9 +168,8 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@ServicioNombre", ser.nombre);
-                    myCommand.Parameters.AddWithValue("@ServicioImagen", ser.imagen);
-                    myCommand.Parameters.AddWithValue("@ServicioDescripcion", ser.descripcion);
+                    myCommand.Parameters.AddWithValue("@ComentarioComentario", com.comentario);
+                    myCommand.Parameters.AddWithValue("@ComentarioCliente_id", com.Cliente_id);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -184,6 +181,5 @@ namespace WebApplication1.Controllers
 
             return new JsonResult("Added Successfully");
         }
-
     }
 }

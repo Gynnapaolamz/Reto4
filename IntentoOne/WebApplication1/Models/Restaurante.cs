@@ -1,16 +1,11 @@
-﻿
-
-namespace WebApplication1.Models
+﻿namespace WebApplication1.Models
 {
-    public class Empleado
+    public class Restaurante
     {
-        internal object id;
-        internal object nombre;
-        internal object descripcion;
 
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Descripcion { get; set; }
-    }
+        public int id { get; set; }
+        public string nombre { get; set; }
+        public string descripcion { get; set; }
+
     }
 }

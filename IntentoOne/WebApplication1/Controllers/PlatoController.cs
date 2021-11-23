@@ -21,12 +21,13 @@ namespace WebApplication1.Controllers
         }
 
         //CONSULTA
-        [HttpGet("{id}")]
-        public JsonResult Get(int id)
+        [HttpGet]
+        public JsonResult Get()
         {
             string query = @"
                         select id,nombre,descripcion,imagen,precio,Restaurante_id
-                        from Plato where id=@Restaurante_id;
+                        from 
+                        Plato
             ";
 
             DataTable table = new DataTable();
@@ -47,6 +48,39 @@ namespace WebApplication1.Controllers
 
             return new JsonResult(table);
         }
+
+        //CONSULTA
+        [HttpGet("{id}")]
+
+        public JsonResult Get(int id)
+        {
+            string query = @"
+                        select id,nombre,descripcion,imagen,precio,Restaurante_id
+                        from Plato
+                        where id=@PlatoId;
+            ";
+
+            DataTable table = new DataTable();
+            string sqlDataSource = _configuration.GetConnectionString("TestAppCon");
+            MySqlDataReader myReader;
+            using (MySqlConnection mycon = new MySqlConnection(sqlDataSource))
+            {
+                mycon.Open();
+                using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
+                {
+                    myCommand.Parameters.AddWithValue("@PlatoId", id);
+
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+
+                    myReader.Close();
+                    mycon.Close();
+                }
+            }
+
+            return new JsonResult(table);
+        }
+
         //ELIMINACION
         [HttpDelete("{id}")]
         public JsonResult Delete(int id)
@@ -81,8 +115,8 @@ namespace WebApplication1.Controllers
         //ACTUALIZACIÓN
 
 
-        [HttpPut]
-        public JsonResult Put(Plato pla)
+        [HttpPut("{id}")]
+        public JsonResult Put(Plato pla, int id)
         {
             string query = @"
                         update Plato set 
@@ -92,6 +126,7 @@ namespace WebApplication1.Controllers
                         imagen =@PlatoImagen,
                         Restaurante_id=@PlatoRestauranteId
                         where id =@PlatoId;
+                        
             ";
 
             DataTable table = new DataTable();
@@ -107,7 +142,7 @@ namespace WebApplication1.Controllers
                     myCommand.Parameters.AddWithValue("@PlatoDescripcion", pla.descripcion);
                     myCommand.Parameters.AddWithValue("@PlatoPrecio", pla.precio);
                     myCommand.Parameters.AddWithValue("@PlatoImagen", pla.imagen);
-                    myCommand.Parameters.AddWithValue("@PlatoRestauranteId", pla.restaurante_Id);
+                    myCommand.Parameters.AddWithValue("@PlatoRestauranteId", pla.Restaurante_Id);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -145,7 +180,7 @@ namespace WebApplication1.Controllers
                     myCommand.Parameters.AddWithValue("@ServicioDescripcion", pla.descripcion);
                     myCommand.Parameters.AddWithValue("@PlatoPrecio", pla.precio);
                     myCommand.Parameters.AddWithValue("@PlatoImagen", pla.imagen);
-                    myCommand.Parameters.AddWithValue("@PlatoRestauranteId", pla.restaurante_Id);
+                    myCommand.Parameters.AddWithValue("@PlatoRestauranteId", pla.Restaurante_Id);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);

@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\Restaurante.cs" />
     <Compile Remove="Controllers\Servicio.cs" />
     <Compile Remove="Controllers\ValuesController.cs" />
     <Compile Remove="Models\Class.cs" />

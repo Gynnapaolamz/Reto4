@@ -1,16 +1,9 @@
-﻿
-
-namespace WebApplication1.Models
+﻿namespace WebApplication1.Models
 {
-    public class Empleado
+    public class Comentario
     {
-        internal object id;
-        internal object comentario;
-        internal object clienteId;
-
-        public int Id { get; set; }
-        public string Comentario { get; set; }
-        public int Cliente_Id { get; set; }
-
+        public int id { get; set; }
+        public string comentario { get; set; }
+        public int Cliente_id { get; set; }
     }
 }

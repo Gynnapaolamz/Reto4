@@ -2,18 +2,13 @@
 {
     public class Plato
     {
-        internal object id;
-        internal object nombre;
-        internal object descripcion;
-        internal object precio;
-        internal object imagen;
-        internal object restaurante_Id;
+       
 
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Imagen { get; set; }
-        public string Descripcion { get; set; }
-        public int Precio { get; set; }
+        public int id { get; set; }
+        public string nombre { get; set; }
+        public string imagen { get; set; }
+        public string descripcion { get; set; }
+        public int precio { get; set; }
         public int Restaurante_Id { get; set; }
     }
 }

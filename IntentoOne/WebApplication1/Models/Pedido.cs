@@ -11,7 +11,7 @@ namespace WebApplication1.Models
 
         public int Id { get; set; }
         public DateTime Fecha { get; set; }
-        public int Cliente_Id { get; set; }
+        public int Restaurante_Id { get; set; }
         public int Plato_Id { get; set; }
     }
 }

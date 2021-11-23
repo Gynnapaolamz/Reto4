@@ -20,15 +20,13 @@ namespace WebApplication1.Controllers
             _env = env;
         }
 
-
-        //CONSULTA
-        [HttpGet("{id]")]
-        public JsonResult Get(int id)
+        [HttpGet]
+        public JsonResult Get()
         {
             string query = @"
                         select id,nombre,descripcion,imagen,Restaurante_id
-                        from 
-                        Empleado where id=@EmpleadoId;
+                        from Empleado
+                       
             ";
 
             DataTable table = new DataTable();
@@ -49,6 +47,39 @@ namespace WebApplication1.Controllers
 
             return new JsonResult(table);
         }
+
+        //CONSULTA
+        [HttpGet("{id}")]
+
+        public JsonResult Get(int id)
+        {
+            string query = @"
+                        select id,nombre,descripcion,imagen,Restaurante_id
+                        from Empleado
+                        where id=@EmpleadoId;
+            ";
+
+            DataTable table = new DataTable();
+            string sqlDataSource = _configuration.GetConnectionString("TestAppCon");
+            MySqlDataReader myReader;
+            using (MySqlConnection mycon = new MySqlConnection(sqlDataSource))
+            {
+                mycon.Open();
+                using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
+                {
+                    myCommand.Parameters.AddWithValue("@EmpleadoId", id);
+
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+
+                    myReader.Close();
+                    mycon.Close();
+                }
+            }
+
+            return new JsonResult(table);
+        }
+
         //ELIMINACION
         [HttpDelete("{id}")]
         public JsonResult Delete(int id)
@@ -83,15 +114,15 @@ namespace WebApplication1.Controllers
         //ACTUALIZACIÓN
 
 
-        [HttpPut]
-        public JsonResult Put(Empleado emp)
+        [HttpPut("{id}")]
+        public JsonResult Put(Empleado emp, int id)
         {
             string query = @"
                         update Empleado set 
                         nombre =@EmpleadosNombre,
                         descripcion =@EmpleadosDescripcion,
                         imagen =@EmpleadosImagen,
-                        restaurante_id =@EmpleadosRestauranteId
+                        Restaurante_id =@EmpleadosRestauranteId
                         where id =@EmpleadosId;
                         
             ";
@@ -121,7 +152,7 @@ namespace WebApplication1.Controllers
             return new JsonResult("Updated Successfully");
         }
         //CREACIÓN
-
+        
         [HttpPost]
         public JsonResult Post(Models.Empleado emp)
         {
@@ -155,6 +186,6 @@ namespace WebApplication1.Controllers
             }
 
             return new JsonResult("Added Successfully");
-        }
+        } 
     }
 }
