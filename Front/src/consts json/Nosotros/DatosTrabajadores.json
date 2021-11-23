@@ -1,0 +1,38 @@
+[
+	{
+		"id": 1,
+		"nombre": "Alfonso Torres",
+		"ocupacion": "Chef Pastelero",
+		"imagen": "https://firebasestorage.googleapis.com/v0/b/juvetic-reto3.appspot.com/o/personal1%402x.png?alt=media&token=4a4e74dd-abc5-4816-9f6c-007c5d0f39a7"
+	},
+	{
+		"id": 2,
+		"nombre": "Miriam Pinto",
+		"ocupacion": "Ejecutiva",
+		"imagen": "https://firebasestorage.googleapis.com/v0/b/juvetic-reto3.appspot.com/o/personal2%402x.png?alt=media&token=f70a7f11-ca72-43d4-a68a-907248bceea1"
+	},
+	{
+		"id": 3,
+		"nombre": "Magaly Nowacky",
+		"ocupacion": "Administradora",
+		"imagen": "https://firebasestorage.googleapis.com/v0/b/juvetic-reto3.appspot.com/o/personal3%402x.png?alt=media&token=1aee5927-4782-4eb2-a955-0d5ed74b89ac"
+	},
+	{
+		"id": 4,
+		"nombre": "Ricardo Amador",
+		"ocupacion": "Chef de temporada",
+		"imagen": "https://firebasestorage.googleapis.com/v0/b/juvetic-reto3.appspot.com/o/personal4%402x.png?alt=media&token=b2ee8130-1893-4109-ad54-8e066e752ea0"
+	},
+	{
+		"id": 5,
+		"nombre": "Bruno Martinez",
+		"ocupacion": "Chef pastelero",
+		"imagen": "https://firebasestorage.googleapis.com/v0/b/juvetic-reto3.appspot.com/o/personal5%402x.png?alt=media&token=843abacb-06e7-4937-aefe-69f64fdb17c1"
+	},
+	{
+		"id": 6,
+		"nombre": "Pedro Parques",
+		"ocupacion": "Chef estrella",
+		"imagen": "https://firebasestorage.googleapis.com/v0/b/juvetic-reto3.appspot.com/o/personal6%402x.png?alt=media&token=bf96deda-c96f-4458-a9c8-6c122adb31d2"
+	}
+]

@@ -1,0 +1,313 @@
+* {
+	box-sizing: border-box;
+}
+
+.card-principal-reserva {
+	background-color: initial;
+	margin: 20px;
+}
+
+.card-principal-reserva {
+	border-radius: 2px;
+	box-shadow: 5px 5px 30px 5px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 5px 5px 30px 5px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 5px 5px 30px 5px rgba(0, 0, 0, 0.5);
+}
+
+.reserva .card:hover {
+	border-radius: 2px;
+	box-shadow: 5px 5px 30px 5px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 5px 5px 30px 5px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 5px 5px 30px 5px rgba(0, 0, 0, 0.5);
+}
+
+.reserva {
+	padding: 0%;
+	margin: 0%;
+	background-color: initial;
+}
+
+.card-principal-reserva .reserva > .card {
+	padding: 0%;
+	margin: 0%;
+	/*width: 60%;*/
+	background: #f3f2f2;
+}
+
+.card-principal-reserva .card-body {
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.card-principal-reserva .card-body > h5 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.card-title {
+	font-size: 3.5rem;
+	color: #682828;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+.card-principal-reserva .formulario_reserva {
+	display: grid;
+}
+
+.card-principal-reserva .formulario__label {
+	display: block;
+	font-weight: 900;
+	margin: 10px;
+	cursor: pointer;
+	width: fit-content;
+}
+
+.card-principal-reserva .formulario__textarea {
+	resize: none;
+	width: 100%;
+	background: #fff;
+	border: 3px solid transparent;
+	border-radius: 3px;
+	border: 1px solid;
+	line-height: 20px;
+	padding: 15px 40px 15px 20px;
+	transition: 0.3s ease all;
+	position: relative;
+	left: 15px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.reserva .formulario__input {
+	width: 100%;
+	background: #ffff;
+	border: 1px solid;
+	border-radius: 3px;
+	height: 55px;
+	line-height: 5px;
+	transition: 0.3s ease all;
+	padding: 15px 40px 15px 20px;
+	position: relative;
+	left: 15px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.card-principal-reserva .formulario__grupo {
+	width: 100%;
+}
+
+.card-principal-reserva .formulario__input:focus,
+.card-principal-reserva .formulario__textarea:focus {
+	outline: none;
+	box-shadow: 3px 0px 30px #a3a3a380;
+}
+
+.card-principal-reserva .formulario__input-error,
+.card-principal-reserva .formulario__input-error1,
+.card-principal-reserva .formulario__input-error-activo,
+.card-principal-reserva .formulario__input-error1-activo {
+	font-size: 15px;
+	margin-bottom: 10px;
+	margin-top: -8px;
+	margin-left: 15px;
+	padding: 5px;
+	width: 94%;
+	display: none;
+}
+
+.card-principal-reserva .formulario__input-error-activo,
+.card-principal-reserva .formulario__input-error1-activo {
+	display: block;
+}
+
+.card-principal-reserva .formulario__validacion-estado {
+	display: flex;
+	position: relative;
+	right: 20px;
+	bottom: 5px;
+	font-size: 20px;
+	opacity: 0;
+}
+
+.card-principal-reserva
+	.formulario__grupo-textarea
+	> .formulario__validacion-estado {
+	right: 24px;
+	bottom: 5px;
+}
+
+.card-principal-reserva
+	.formulario__grupo-select
+	> .formulario__validacion-estado {
+	right: 30px;
+	bottom: 4px;
+}
+.card-principal-reserva .formulario__checkbox {
+	margin-left: 15px;
+	margin-right: 15px;
+	cursor: pointer;
+}
+.card-principal-reserva .formulario__mensaje {
+	height: 55px;
+	width: 97%;
+	background: #f66060;
+	color: rgb(255, 250, 250);
+	padding: 0 15px;
+	border-radius: 3px;
+	position: relative;
+	left: 15px;
+	top: 10px;
+	bottom: -15px;
+	margin-bottom: 18px;
+	display: none;
+}
+
+.card-principal-reserva .formulario__mensaje strong {
+	color: black;
+}
+
+.card-principal-reserva .formulario__mensaje i {
+	color: gold;
+}
+
+.card-principal-reserva .formulario__mensaje-activo {
+	display: block;
+}
+
+.card-principal-reserva .formulario__mensaje p {
+	width: 100%;
+	height: 100%;
+	margin: 0%;
+	padding: 0%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.card-principal-reserva .formulario__btn {
+	height: 45px;
+	width: 100%;
+	background: rgb(32, 32, 32);
+	color: #fffdff;
+	font-weight: bold;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: 0.5s ease all;
+	position: relative;
+	width: 97%;
+	left: 6px;
+}
+
+.card-principal-reserva .formulario__grupo-btn-enviar {
+	width: 100%;
+	height: 100%;
+}
+
+.card-principal-reserva .formulario__btn:hover {
+	box-shadow: 3px 0px 30px #a3a3a3;
+}
+
+.card-principal-reserva .formulario__mensaje-exito {
+	height: 25px;
+	width: 97%;
+	font-size: 90%;
+	background-color: #119200;
+	color: whitesmoke;
+	padding: 0 15px;
+	border-radius: 3px;
+	position: relative;
+	left: 12px;
+	top: 10px;
+	bottom: -15px;
+	margin-bottom: 10px;
+	display: none;
+}
+
+.card-principal-reserva .formulario__mensaje-exito-activo {
+	display: block;
+}
+
+/* ----- ----- Estilos para Validacion ----- -----  */
+
+.card-principal-reserva
+	.formulario__grupo-correcto
+	.formulario__validacion-estado {
+	color: #1ed12d;
+	opacity: 1;
+}
+
+.card-principal-reserva .formulario__grupo-incorrecto .formulario__label {
+	color: #bb2929;
+}
+.card-principal-reserva .formulario__grupo-correcto .formulario__label {
+	color: #3ed45e;
+}
+
+.card-principal-reserva
+	.formulario__grupo-incorrecto
+	.formulario__validacion-estado {
+	color: #bb2929;
+	opacity: 1;
+}
+
+.card-principal-reserva .formulario__grupo-correcto .formulario__input,
+.card-principal-reserva .formulario__grupo-correcto .formulario__textarea,
+.card-principal-reserva .formulario__grupo-correcto .formulario__checkbox {
+	border: 2px solid #8ec79a;
+}
+
+.card-principal-reserva .formulario__grupo-incorrecto .formulario__input,
+.card-principal-reserva .formulario__grupo-incorrecto .formulario__textarea,
+.card-principal-reserva .formulario__grupo-incorrecto .formulario__checkbox {
+	border: 2px solid #bb2929;
+}
+
+.card-principal-reserva .formulario__input-check {
+	background-color: #e8f0fe;
+}
+
+.card-principal-reserva .fas {
+	font-size: inherit;
+}
+
+/* ----- -----  Mediaqueries ----- ----- */
+@media (min-width: 0px) {
+	.card-principal-reserva .reserva > .card {
+		width: 100%;
+		background-color: inherit;
+	}
+	.card-principal-reserva .card-principal-reserva .card-body {
+		background: none;
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+}
+@media (min-width: 576px) {
+	.card-principal-reserva .reserva > .card {
+		width: 89%;
+		background: #f3f2f2;
+	}
+	.card-principal-reserva .card-body {
+		padding-left: 45px;
+		padding-right: 45px;
+	}
+}
+@media (min-width: 768px) {
+	.card-principal-reserva .reserva > .card {
+		width: 80%;
+	}
+	.card-principal-reserva .card-body {
+		padding-left: 55px;
+		padding-right: 55px;
+	}
+}
+
+@media (min-width: 992px) {
+	.card-principal-reserva .reserva > .card {
+		width: 65%;
+	}
+	.card-principal-reserva .card-body {
+		padding-left: 65px;
+		padding-right: 65px;
+	}
+}

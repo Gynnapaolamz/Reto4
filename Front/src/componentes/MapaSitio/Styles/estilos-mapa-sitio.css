@@ -1,0 +1,27 @@
+#mapaSitio .h1_titulo {
+	font-size: 4rem;
+	color: rgb(100, 26, 7);
+}
+
+#mapaSitio .link_vistas {
+	font-size: 1.5rem;
+	text-decoration: none;
+	color: rgb(44, 23, 23);
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+#mapaSitio .nav-item:hover {
+	background-color: #7272725b !important;
+}
+
+#mapaSitio ul {
+	margin-top: 25px;
+	color: rgb(100, 26, 7) !important;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+#mapaSitio ul li {
+	text-align: start;
+	margin-top: 15px;
+	width: 100%;
+}

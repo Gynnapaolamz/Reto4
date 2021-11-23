@@ -1,0 +1,53 @@
+[
+	{
+		"a_CallComponentBool": true,
+		"atributosA": {
+			"className": "btn btn-outline-light btn-floating m-3 mt-4",
+			"href": "https://web.facebook.com",
+			"role": "button"
+		},
+
+		"fontAwesomeIcon_CallComponentBool": true,
+		"atributosFontAwesomeIcon": {
+			"className": "fab"
+		},
+		"fontAwesomeIcon_icon": "faFacebookF",
+
+		"img_CallComponentBool": false,
+		"p_CallComponentBool": false
+	},
+	{
+		"a_CallComponentBool": true,
+		"atributosA": {
+			"className": "btn btn-outline-light btn-floating m-3 mt-4",
+			"href": "https://twitter.com",
+			"role": "button"
+		},
+
+		"fontAwesomeIcon_CallComponentBool": true,
+		"atributosFontAwesomeIcon": {
+			"className": "fab"
+		},
+		"fontAwesomeIcon_icon": "faTwitter",
+
+		"img_CallComponentBool": false,
+		"p_CallComponentBool": false
+	},
+	{
+		"a_CallComponentBool": true,
+		"atributosA": {
+			"className": "btn btn-outline-light btn-floating m-3 mt-4",
+			"href": "https://www.youtube.com",
+			"role": "button"
+		},
+
+		"fontAwesomeIcon_CallComponentBool": true,
+		"atributosFontAwesomeIcon": {
+			"className": "fab"
+		},
+		"fontAwesomeIcon_icon": "faYoutube",
+
+		"img_CallComponentBool": false,
+		"p_CallComponentBool": false
+	}
+]

@@ -1,0 +1,172 @@
+/* Botón de aumentar o disminuir productos en el carrito */
+.shopping-cart-quantity-input {
+	max-width: 4rem;
+	max-height: 4rem;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background: #eee;
+	padding: 5px;
+}
+
+.carrito-card {
+	max-width: 50rem;
+}
+
+.carrito-card #card-body {
+	text-align: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.carrito-card #card-body > .row > .col-cantidad > p {
+	font-size: 20px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: bold;
+	margin-bottom: 18px;
+	text-align: center;
+}
+
+.carrito-card #card-body > .row > .col-minus-input-plus > .row {
+	justify-content: center;
+}
+
+.carrito-card .formulario_carrito_input {
+	display: grid;
+}
+
+.carrito-card
+	#card-body
+	> .row
+	> .col-minus-input-plus
+	> .row
+	> .formulario_carrito_input {
+	margin: 0%;
+	padding: 0%;
+	width: 85px;
+}
+
+.carrito-card
+	#card-body
+	> .row
+	> .col-minus-input-plus
+	> .row
+	> .col-minus
+	> button
+	> .fas,
+.carrito-card
+	#card-body
+	> .row
+	> .col-minus-input-plus
+	> .row
+	> .col-plus
+	> button
+	> .fas {
+	font-size: 15px;
+}
+
+.carrito-card .formulario__input-cantidad {
+	width: 100%;
+	background: #ffff;
+	border: 1px solid;
+	border-radius: 3px;
+	height: 38px;
+	line-height: 5px;
+	transition: 0.3s ease all;
+	text-align: center;
+	padding: 5px 30px 5px 10px;
+	font-size: 18px;
+	font-weight: 500;
+}
+.carrito-card .formulario__grupo {
+	width: 150px;
+	text-align: justify;
+}
+
+.carrito-card .formulario__input-cantidad:focus {
+	outline: none;
+	box-shadow: 3px 0px 35px #a3a3a380;
+}
+
+.carrito-card .formulario__input-check {
+	background-color: #e8f0fe;
+}
+
+.carrito-card .formulario__input-error,
+.carrito-card .formulario__input-error1 {
+	width: 150px;
+	font-size: 12px;
+	margin-top: 10px;
+	display: none;
+}
+
+.carrito-card .formulario__input-error-activo,
+.carrito-card .formulario__input-error1-activo {
+	display: block;
+}
+
+.carrito-card .formulario__validacion-estado {
+	display: flex;
+	position: relative;
+	right: 29px;
+	bottom: -1px;
+	font-size: 20px;
+	opacity: 0;
+}
+
+.carrito-card .formulario__btn-agregar-carrito:hover {
+	box-shadow: 3px 0px 20px #a3a3a3;
+}
+
+.carrito-card .formulario__grupo-correcto .formulario__validacion-estado {
+	color: #1ed12d;
+	opacity: 1;
+}
+
+.carrito-card .formulario__grupo-incorrecto .formulario__validacion-estado {
+	color: #bb2929;
+	opacity: 1;
+}
+
+.carrito-card .formulario__grupo-incorrecto .formulario__input-cantidad {
+	border: 3px solid #bb2929;
+}
+
+.carrito-card .col-pagar-ahora-none {
+	display: none;
+}
+
+#col_pagar-ahora {
+	position: fixed;
+	right: 38px;
+	bottom: 39px;
+}
+
+.row-total > .col {
+	display: flex;
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-basis: 3%;
+}
+
+@media (min-width: 0px) and (max-width: 990px) {
+	#col_pagar-ahora {
+		position: relative;
+		right: inherit;
+		bottom: inherit;
+		z-index: inherit;
+	}
+}
+
+@media (min-width: 991px) and (max-width: 1280px) {
+	.imagen-carrito {
+		height: 150px;
+		width: 150px;
+	}
+
+	#col_pagar-ahora {
+		position: fixed;
+		right: 2.2%;
+		bottom: 39px;
+		z-index: 0;
+	}
+}

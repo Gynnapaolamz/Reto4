@@ -1,0 +1,38 @@
+[
+	{
+		"id": 1,
+		"nombre": "Celebración de cumpleaños",
+		"descripcion": "Phasellus efficitur augue ante, sed pharetra orci imperdiet ac. Nulla sodales nunc justo, vel varius lorem rutrum luctus. Nunc imperdiet, mauris eu fermentum ultrices, dolor est dapibus magna, eget hendrerit augue urna sed arcu. Etiam fermentum posuere aliquet. Nulla faucibus, dui et bibendum hendrerit nulla libero molestie quam, sed mollis erat ante vel ante.",
+		"imagen": "https://firebasestorage.googleapis.com/v0/b/juvetic-reto3.appspot.com/o/cumpleanos.svg?alt=media&token=166fd636-f363-45bf-a328-ce5f4881f767"
+	},
+	{
+		"id": 2,
+		"nombre": "Aniversarios",
+		"descripcion": "Phasellus efficitur augue ante, sed pharetra orci imperdiet ac. Nulla sodales nunc justo, vel varius lorem rutrum luctus. Nunc imperdiet, mauris eu fermentum ultrices, dolor est dapibus magna, eget hendrerit augue urna sed arcu. Etiam fermentum posuere aliquet. Nulla faucibus, dui et bibendum hendrerit nulla libero molestie quam, sed mollis erat ante vel ante.",
+		"imagen": "https://firebasestorage.googleapis.com/v0/b/juvetic-reto3.appspot.com/o/aniversario.svg?alt=media&token=6070e0d4-3af0-4579-ae15-5f82c8444ddb"
+	},
+	{
+		"id": 3,
+		"nombre": "Fiestas Infantiles",
+		"descripcion": "Phasellus efficitur augue ante, sed pharetra orci imperdiet ac. Nulla sodales nunc justo, vel varius lorem rutrum luctus. Nunc imperdiet, mauris eu fermentum ultrices, dolor est dapibus magna, eget hendrerit augue urna sed arcu. Etiam fermentum posuere aliquet. Nulla faucibus, dui et bibendum hendrerit nulla libero molestie quam, sed mollis erat ante vel ante.",
+		"imagen": "https://firebasestorage.googleapis.com/v0/b/juvetic-reto3.appspot.com/o/fiesta-infantil.svg?alt=media&token=b12c2783-6f71-4af4-b3f9-e5a81468d5b8"
+	},
+	{
+		"id": 4,
+		"nombre": "Declaraciones o propuestas",
+		"descripcion": "Phasellus efficitur augue ante, sed pharetra orci imperdiet ac. Nulla sodales nunc justo, vel varius lorem rutrum luctus. Nunc imperdiet, mauris eu fermentum ultrices, dolor est dapibus magna, eget hendrerit augue urna sed arcu. Etiam fermentum posuere aliquet. Nulla faucibus, dui et bibendum hendrerit nulla libero molestie quam, sed mollis erat ante vel ante.",
+		"imagen": "https://firebasestorage.googleapis.com/v0/b/juvetic-reto3.appspot.com/o/propuesta-declaracion.svg?alt=media&token=1698f21c-cffb-4b03-8f69-2253d2914ac3"
+	},
+	{
+		"id": 5,
+		"nombre": "Despedidas",
+		"descripcion": "Phasellus efficitur augue ante, sed pharetra orci imperdiet ac. Nulla sodales nunc justo, vel varius lorem rutrum luctus. Nunc imperdiet, mauris eu fermentum ultrices, dolor est dapibus magna, eget hendrerit augue urna sed arcu. Etiam fermentum posuere aliquet. Nulla faucibus, dui et bibendum hendrerit nulla libero molestie quam, sed mollis erat ante vel ante.",
+		"imagen": "https://firebasestorage.googleapis.com/v0/b/juvetic-reto3.appspot.com/o/propuesta-declaracion.svg?alt=media&token=1698f21c-cffb-4b03-8f69-2253d2914ac3"
+	},
+	{
+		"id": 6,
+		"nombre": "Cena con amigos",
+		"descripcion": "Phasellus efficitur augue ante, sed pharetra orci imperdiet ac. Nulla sodales nunc justo, vel varius lorem rutrum luctus. Nunc imperdiet, mauris eu fermentum ultrices, dolor est dapibus magna, eget hendrerit augue urna sed arcu. Etiam fermentum posuere aliquet. Nulla faucibus, dui et bibendum hendrerit nulla libero molestie quam, sed mollis erat ante vel ante.",
+		"imagen": "https://firebasestorage.googleapis.com/v0/b/juvetic-reto3.appspot.com/o/cena-amigos.svg?alt=media&token=300a01b5-5379-4b37-b8f7-6169571ed481"
+	}
+]

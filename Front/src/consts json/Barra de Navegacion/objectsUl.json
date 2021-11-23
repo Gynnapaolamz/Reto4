@@ -1,0 +1,335 @@
+{
+	"imgLogo": {
+		"li": [
+			{
+				"atributosUl": {
+					"className": "navbar-nav"
+				},
+
+				"li_CallComponentBool": true,
+				"atributosLi": {
+					"className": "nav-item",
+					"type": "button"
+				},
+
+				"link_CallComponentBool": true,
+				"atributosLink": {
+					"className": "nav-link d-flex align-items-center justify-content-center nav-link-logo",
+					"to": "/inicio",
+					"role": "button"
+				},
+
+				"img_CallComponentBool": true,
+				"atributosImg": {
+					"className": "img-logo",
+					"src": "https://firebasestorage.googleapis.com/v0/b/juvetic-reto3.appspot.com/o/logo%402x.png?alt=media&token=9c78bbe4-fb8a-4c38-ae49-7775b60e917e"
+				},
+				"img_Alt": "Logo del restaurante",
+
+				"p_CallComponentBool": false,
+				"fontAwesomeIcon_CallComponentBool": false
+			}
+		]
+	},
+	"fontAwesomeIcon": {
+		"fontAwesomeIcon_CallComponentBool": true,
+		"atributosFontAwesomeIcon": {
+			"className": "fas",
+			"style": { "color": "aliceblue" }
+		},
+		"fontAwesomeIcon_icon": "faBars"
+	},
+	"datos": {
+		"atributosUl": {
+			"className": "navbar-nav me-auto mb-lg-0 navbar-nav-scroll bsScrollHeight"
+		},
+		"li": [
+			{
+				"img_CallComponentBool": false,
+
+				"li_CallComponentBool": true,
+				"atributosLi": {
+					"className": "nav-item d-flex align-items-start",
+					"type": "button"
+				},
+
+				"link_CallComponentBool": true,
+				"atributosLink": {
+					"className": "nav-link d-flex align-items-center justify-content-center",
+					"to": "/inicio",
+					"role": "button",
+					"style": {
+						"width": "100%",
+						"height": "100%",
+						"margin": "0%"
+					}
+				},
+
+				"p_CallComponentBool": true,
+				"atributosP": {
+					"className": "d-flex align-items-center justify-content-center"
+				},
+				"p_texto": "INICIO",
+
+				"fontAwesomeIcon_CallComponentBool": true,
+				"atributosFontAwesomeIcon": {
+					"className": "fas",
+					"style": { "fontSize": 20, "marginRight": 10 }
+				},
+				"fontAwesomeIcon_icon": "faHome"
+			},
+			{
+				"li_CallComponentBool": true,
+				"atributosLi": {
+					"className": "nav-item d-flex align-items-start",
+					"type": "button"
+				},
+
+				"link_CallComponentBool": true,
+				"atributosLink": {
+					"className": "nav-link d-flex align-items-center justify-content-center",
+					"to": "/nosotros",
+					"role": "button",
+					"style": {
+						"width": "100%",
+						"height": "100%",
+						"margin": "0%"
+					}
+				},
+
+				"p_CallComponentBool": true,
+				"atributosP": {
+					"className": "d-flex align-items-center justify-content-center"
+				},
+				"p_texto": "QUIENES SOMOS",
+
+				"fontAwesomeIcon_CallComponentBool": false,
+				"img_CallComponentBool": false
+			},
+			{
+				"li_CallComponentBool": true,
+				"atributosLi": {
+					"className": "nav-item d-flex align-items-start",
+					"type": "button"
+				},
+
+				"link_CallComponentBool": true,
+				"atributosLink": {
+					"className": "nav-link d-flex align-items-center justify-content-center",
+					"to": "/servicios",
+					"role": "button",
+					"style": {
+						"width": "100%",
+						"height": "100%",
+						"margin": "0%"
+					}
+				},
+
+				"p_CallComponentBool": true,
+				"atributosP": {
+					"className": "d-flex align-items-center justify-content-center"
+				},
+				"p_texto": "SERVICIOS",
+
+				"img_CallComponentBool": false,
+				"fontAwesomeIcon_CallComponentBool": false
+			},
+			{
+				"li_CallComponentBool": true,
+				"atributosLi": {
+					"className": "nav-item d-flex align-items-start",
+					"type": "button"
+				},
+
+				"link_CallComponentBool": true,
+				"atributosLink": {
+					"className": "nav-link d-flex align-items-center justify-content-center",
+					"to": "/reserva",
+					"role": "button",
+					"style": {
+						"width": "100%",
+						"height": "100%",
+						"margin": "0%"
+					}
+				},
+
+				"p_CallComponentBool": true,
+				"atributosP": {
+					"className": "d-flex align-items-center justify-content-center"
+				},
+				"p_texto": "RESERVAS",
+
+				"img_CallComponentBool": false,
+				"fontAwesomeIcon_CallComponentBool": false
+			},
+			{
+				"li_CallComponentBool": true,
+				"atributosLi": {
+					"className": "nav-item d-flex align-items-start",
+					"type": "button"
+				},
+
+				"link_CallComponentBool": true,
+				"atributosLink": {
+					"className": "nav-link d-flex align-items-center justify-content-center",
+					"to": "/menu",
+					"role": "button",
+					"style": {
+						"width": "100%",
+						"height": "100%",
+						"margin": "0%"
+					}
+				},
+
+				"boxIcons_CallComponentBool": true,
+				"atributosBoxIcons": {
+					"className": "bx bxs-food-menu d-flex align-items-center justify-content-center",
+					"style": { "fontSize": "23px" }
+				},
+
+				"p_CallComponentBool": false,
+				"fontAwesomeIcon_CallComponentBool": false,
+				"img_CallComponentBool": false
+			},
+			{
+				"li_CallComponentBool": false,
+				"atributosLi": {
+					"className": "nav-item d-flex align-items-start",
+					"type": "button"
+				},
+
+				"link_CallComponentBool": true,
+				"atributosLink": {
+					"className": "nav-link d-flex align-items-center justify-content-center",
+					"to": "/menu",
+					"role": "button"
+				},
+
+				"img_CallComponentBool": true,
+				"atributosImg": {
+					"className": "",
+					"src": "https://firebasestorage.googleapis.com/v0/b/juvetic-reto3.appspot.com/o/menu%402x.png?alt=media&token=a553b0ad-1631-4e04-83c9-10195a84d4e0",
+					"width": "70",
+					"height": "70"
+				},
+				"img_Alt": "Menu",
+
+				"p_CallComponentBool": false,
+				"fontAwesomeIcon_CallComponentBool": false
+			},
+			{
+				"li_CallComponentBool": true,
+				"atributosLi": {
+					"className": "nav-item d-flex align-items-start",
+					"type": "button"
+				},
+
+				"link_CallComponentBool": true,
+				"atributosLink": {
+					"className": "nav-link d-flex align-items-center justify-content-center",
+					"to": "/carrito",
+					"role": "button",
+					"style": {
+						"width": "100%",
+						"height": "100%",
+						"margin": "0%"
+					}
+				},
+
+				"fontAwesomeIcon_CallComponentBool": true,
+				"atributosFontAwesomeIcon": {
+					"className": "fas icon-carrito"
+				},
+				"fontAwesomeIcon_icon": "faShoppingCart",
+
+				"p_CallComponentBool": false,
+				"img_CallComponentBool": false
+			},
+			{
+				"li_CallComponentBool": true,
+				"li_name": "login",
+				"atributosLi": {
+					"className": "nav-item d-flex align-items-start",
+					"type": "button"
+				},
+
+				"link_CallComponentBool": true,
+				"atributosLink": {
+					"className": "nav-link d-flex align-items-center justify-content-center",
+					"to": "/login",
+					"role": "button",
+					"style": {
+						"width": "100%",
+						"height": "100%",
+						"margin": "0%"
+					}
+				},
+
+				"fontAwesomeIcon_CallComponentBool": true,
+				"atributosFontAwesomeIcon": {
+					"className": "fas icon-carrito"
+				},
+				"fontAwesomeIcon_icon": "faSignInAlt",
+
+				"p_CallComponentBool": false,
+				"img_CallComponentBool": false
+			},
+			{
+				"li_CallComponentBool": false,
+				"li_name": "signout",
+				"atributosLi": {
+					"className": "nav-item d-flex align-items-start",
+					"type": "button"
+				},
+
+				"link_CallComponentBool": true,
+				"atributosLink": {
+					"className": "nav-link d-flex align-items-center justify-content-center",
+					"to": "/inicio",
+					"role": "button",
+					"style": {
+						"width": "100%",
+						"height": "100%",
+						"margin": "0%"
+					}
+				},
+				"fontAwesomeIcon_CallComponentBool": true,
+				"atributosFontAwesomeIcon": {
+					"className": "fas icon-carrito"
+				},
+				"fontAwesomeIcon_icon": "faSignOutAlt",
+
+				"p_CallComponentBool": false,
+				"img_CallComponentBool": false
+			},
+			{
+				"li_CallComponentBool": true,
+				"li_name": "signup",
+				"atributosLi": {
+					"className": "nav-item d-flex align-items-center justify-content-center",
+					"type": "button"
+				},
+
+				"a_CallComponentBool": true,
+				"atributosA": {
+					"className": "nav-link",
+					"href": "#!",
+					"role": "button",
+					"style": { "pointerEvents": "none", "marginBottom": "0px" }
+				},
+
+				"img_CallComponentBool": true,
+				"atributosImg": {
+					"className": "rounded-circle mb-lg-0 shadow-2 border border-white border-3",
+					"src": "https://picsum.photos/200",
+					"width": "40",
+					"height": "40"
+				},
+				"img_Alt": "Avatar",
+
+				"p_CallComponentBool": false,
+				"fontAwesomeIcon_CallComponentBool": false
+			}
+		]
+	}
+}

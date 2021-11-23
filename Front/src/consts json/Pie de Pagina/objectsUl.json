@@ -1,0 +1,64 @@
+{
+	"datos": {
+		"atributosUl": {
+			"className": "me-auto text-right",
+			"style": { "paddingLeft": 10, "paddingRight": 10 }
+		},
+		"li": [
+			{
+				"li_CallComponentBool": true,
+				"atributosLi": {
+					"className": "nav-item",
+					"type": "button",
+					"style": { "display": "inline-block" }
+				},
+
+				"link_CallComponentBool": true,
+				"atributosLink": {
+					"className": "nav-link",
+					"to": "/mapa-sitio",
+					"role": "button",
+					"style": {
+						"width": "100%",
+						"height": "100%",
+						"margin": "0%"
+					}
+				},
+
+				"p_CallComponentBool": true,
+				"atributosP": {},
+				"p_texto": "MAPA DEL SITIO",
+
+				"fontAwesomeIcon_CallComponentBool": false,
+				"img_CallComponentBool": false
+			},
+			{
+				"li_CallComponentBool": true,
+				"atributosLi": {
+					"className": "nav-item",
+					"type": "button",
+					"style": { "display": "inline-block" }
+				},
+
+				"link_CallComponentBool": true,
+				"atributosLink": {
+					"className": "nav-link",
+					"to": "/reserva",
+					"role": "button",
+					"style": {
+						"width": "100%",
+						"height": "100%",
+						"margin": "0%"
+					}
+				},
+
+				"p_CallComponentBool": true,
+				"atributosP": {},
+				"p_texto": "RESERVAS",
+
+				"fontAwesomeIcon_CallComponentBool": false,
+				"img_CallComponentBool": false
+			}
+		]
+	}
+}

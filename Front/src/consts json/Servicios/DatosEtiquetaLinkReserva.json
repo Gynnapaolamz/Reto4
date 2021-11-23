@@ -1,0 +1,20 @@
+{
+	"link_CallComponentBool": true,
+	"atributosLink": {
+		"className": "btn btn-lg boton-contacto",
+		"to": "/reserva",
+		"role": "button",
+		"style": { "backgroundColor": "rgb(255, 217, 0)" }
+	},
+
+	"p_CallComponentBool": true,
+	"atributosP": {},
+	"p_texto": "¡Reserva ya!",
+
+	"fontAwesomeIcon_CallComponentBool": true,
+	"atributosFontAwesomeIcon": {
+		"className": "fas",
+		"style": { "marginRight": "15px" }
+	},
+	"fontAwesomeIcon_icon": "faCalendarPlus"
+}
