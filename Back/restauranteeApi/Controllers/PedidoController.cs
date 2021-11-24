@@ -12,13 +12,13 @@ using restauranteeApi.Models;
 
 namespace restauranteeApi.Controllers
 {
-    [Route("api/empleados[controller]")]
+    [Route("api/pedido[controller]")]
     [ApiController]
-    public class EmpleadosController : ControllerBase
+    public class PedidoController : ControllerBase
     {
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _env;
-        public EmpleadosController(IConfiguration configuration, IWebHostEnvironment env)
+        public PedidoController(IConfiguration configuration, IWebHostEnvironment env)
         {
             _configuration = configuration;
             _env = env;
@@ -29,9 +29,9 @@ namespace restauranteeApi.Controllers
         {
 
             string query = @"
-                         select idEmpleado, nombre, cargo, imagen
+                         select idPedido, idCliente, idPlato, cantidad, total
                          from 
-                         empleados
+                         pedido
         ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("TestAppCon");
@@ -52,12 +52,12 @@ namespace restauranteeApi.Controllers
             return new JsonResult(table);
         }
 
-        [HttpDelete("{id}")]
-        public JsonResult Delete(int id)
+        [HttpDelete("{idPedido}")]
+        public JsonResult Delete(int idPedido)
         {
             string query = @"
-                        delete from empleados 
-                        where idEmpleado=@EmpleadosId;
+                        delete from pedido 
+                        where idPedido=@PedidoId;
                         
             ";
 
@@ -69,7 +69,7 @@ namespace restauranteeApi.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@EmpleadosId", idEmpleado);
+                    myCommand.Parameters.AddWithValue("@PedidoId", idPedido);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -86,14 +86,15 @@ namespace restauranteeApi.Controllers
 
 
         [HttpPut]
-        public JsonResult Put(Empleados emp)
+        public JsonResult Put(Pedido ped)
         {
             string query = @"
-                        update empleados set 
-                        nombre =@EmpleadosNombre,
-                        cargo =@EmpleadosCargo,
-                        imagen =@EmpleadosImagen,
-                        where idEmpleado =@EmpleadosId;
+                        update pedido set 
+                        idCliente =@PedidoCliente,
+                        idPlato =@PedidoPlato,
+                        cantidad =@PedidoCantidad,
+                        total =@PedidoTotal,
+                        where idPedido =@PedidoId;
                         
             ";
 
@@ -105,10 +106,11 @@ namespace restauranteeApi.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@EmpleadosId", emp.idEmpleado);
-                    myCommand.Parameters.AddWithValue("@EmpleadosNombre", emp.nombre);
-                    myCommand.Parameters.AddWithValue("@EmpleadosCargo", emp.cargo);
-                    myCommand.Parameters.AddWithValue("@EmpleadosImagen", emp.imagen);
+                    myCommand.Parameters.AddWithValue("@PedidoId", ped.idPedido);
+                    myCommand.Parameters.AddWithValue("@PedidoCliente", ped.idCliente);
+                    myCommand.Parameters.AddWithValue("@PedidoPlato", ped.idPlato);
+                    myCommand.Parameters.AddWithValue("@PedidoCantidad", ped.cantidad);
+                    myCommand.Parameters.AddWithValue("@PedidoTotal", ped.total);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -123,13 +125,13 @@ namespace restauranteeApi.Controllers
         //CREACIÓN
 
         [HttpPost]
-        public JsonResult Post(Models.Empleados emp)
+        public JsonResult Post(Models.Pedido ped)
         {
             string query = @"
-                        insert into empleados 
-                        (nombre,cargo, imagen) 
+                        insert into Pedido 
+                        (idCliente,idPlato, cantidad, total) 
                         values
-                         (@EmpleadosNombre,@EmpleadosCargo, @EmpleadosImagen) ;
+                         (@PedidoCliente,@PedidoPlato, @EmpleadosImagen) ;
                         
             ";
 
