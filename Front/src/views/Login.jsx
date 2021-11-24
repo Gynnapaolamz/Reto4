@@ -1,14 +1,13 @@
 import React from "react";
-import "../componentes/Login/Styles/estilos-login.css";
+import "../componentes/login/Styles/estilos-login.css";
 import DatosInputsLogin from "../consts json/Login/DatosInputsLogin.json";
 import Input from "../componentes/Inputs/Input";
 import InputsProvider from "../contexts/Inputs/InputsProvider";
-import ButtonLogin from "../componentes/Login/ButtonLogin";
+import ButtonLogin from "../componentes/login/ButtonLogin";
 import EtiquetaFontAwesomeIcon from "../componentes/FontAwesome/EtiquetaFontAwesomeIcon";
 import { Link } from "react-router-dom";
 
 const CardForm = () => {
-	
 	return (
 		<>
 			<div className="card card-principal-login">
@@ -80,7 +79,6 @@ const CardForm = () => {
 	);
 };
 const Login = () => {
-
 	return (
 		<>
 			<InputsProvider>
