@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\WebApplication1",
-    "\\WebApplication1\\Controllers"
+    "\\WebApplication1\\Controllers",
+    "\\WebApplication1\\Models"
   ],
-  "SelectedNode": "\\WebApplication1\\Controllers\\ReservaController.cs",
+  "SelectedNode": "\\WebApplication1\\Models\\Plato.cs",
   "PreviewInSolutionExplorer": false
 }
