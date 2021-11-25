@@ -25,7 +25,7 @@ namespace WebApplication1.Controllers
         public JsonResult Get()
         {
             string query = @"
-                        select id, fecha, Cliente_id, Servicio_id
+                        select id, fecha, Cliente_id, Servicio_id, estado
                         from 
                         Reserva
             ";
@@ -50,14 +50,14 @@ namespace WebApplication1.Controllers
         }
 
         //CONSULTA
-        [HttpGet("{id}")]
+        [HttpGet("{Cliente_id}/{Servicio_id}")]
 
-        public JsonResult Get(int id)
+        public JsonResult Get(int Cliente_id, int Servicio_id)
         {
             string query = @"
-                        select id,fecha, Cliente_id, Servicio_id
-                        from Reserva
-                        where id=@ReservaId;
+                        select id,fecha, Cliente_id, Servicio_id, estado
+                        from Reserva re
+                        where re.Cliente_id = @Cliente_id and re.Servicio_id=@Servicio_id;
             ";
 
             DataTable table = new DataTable();
@@ -68,7 +68,8 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@ReservaId", id);
+                    myCommand.Parameters.AddWithValue("@Cliente_id", Cliente_id);
+                    myCommand.Parameters.AddWithValue("@Servicio_id", Servicio_id);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
 
@@ -115,13 +116,14 @@ namespace WebApplication1.Controllers
 
 
         [HttpPut("{id}")]
-        public JsonResult Put(Reserva res, int id)
+        public JsonResult Put(Reserva rese, int id)
         {
             string query = @"
                         update Reserva set 
                         fecha =@ReservaFecha,
-                        Cliente_id =@ReservaCliente_id,
-                        Servicio_id =@ReservaServicio_id,           
+                        Servicio_id =@ReservaServicioId,
+                        Cliente_id =@ReservaClienteId,
+                        estado = @ReservaEstado
                         where id =@ReservaId;
                         
             ";
@@ -134,10 +136,11 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@ReservaId", res.id);
-                    myCommand.Parameters.AddWithValue("@ReservaFecha", res.fecha);
-                    myCommand.Parameters.AddWithValue("@ReservaCliente_id", res.Cliente_id);
-                    myCommand.Parameters.AddWithValue("@ReservaServicio_id", res.Servicio_id);
+                    myCommand.Parameters.AddWithValue("@ReservaId", rese.id);
+                    myCommand.Parameters.AddWithValue("@ReservaFecha", rese.fecha);
+                    myCommand.Parameters.AddWithValue("@ReservaClienteId", rese.Cliente_id);
+                    myCommand.Parameters.AddWithValue("@ReservaServicioId", rese.Servicio_id);
+                    myCommand.Parameters.AddWithValue("@ReservaEstado", rese.estado);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -149,6 +152,7 @@ namespace WebApplication1.Controllers
 
             return new JsonResult("Updated Successfully");
         }
+
         //CREACIÓN
 
         [HttpPost]
@@ -156,9 +160,9 @@ namespace WebApplication1.Controllers
         {
             string query = @"
                         insert into Reserva 
-                        (fecha,Cliente_id,Servicio_id) 
+                        (fecha,Cliente_id,Servicio_id,estado) 
                         values
-                         (@ReservaFecha,@ReservaCliente_id,@ReservaServicio_id) ;
+                         (@ReservaFecha,@ReservaCliente_id,@ReservaServicio_id,@ReservaEstado) ;
                         
             ";
 
@@ -172,8 +176,8 @@ namespace WebApplication1.Controllers
                 {
                     myCommand.Parameters.AddWithValue("@ReservaFecha", res.fecha);
                     myCommand.Parameters.AddWithValue("@ReservaCliente_id", res.Cliente_id);
-                    myCommand.Parameters.AddWithValue("@@ReservaServicio_id", res.Servicio_id);
-
+                    myCommand.Parameters.AddWithValue("@ReservaServicio_id", res.Servicio_id);
+                    myCommand.Parameters.AddWithValue("@ReservaEstado", res.estado);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
 

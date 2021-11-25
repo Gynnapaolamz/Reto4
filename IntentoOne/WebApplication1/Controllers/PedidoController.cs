@@ -6,6 +6,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using WebApplication1.Models;
 
+
 namespace WebApplication1.Controllers
 {
     [Route("api/[controller]")]
@@ -50,14 +51,14 @@ namespace WebApplication1.Controllers
         }
 
         //CONSULTA
-        [HttpGet("{id}")]
+        [HttpGet("{Cliente_id}/{Plato_id}")]
 
-        public JsonResult Get(int id)
+        public JsonResult Get(int Cliente_id, int Plato_id)
         {
             string query = @"
-                        select id,fecha, Plato_id, Cliente_id
-                        from Pedido
-                        where id=@PedidoId;
+                        select id, fecha 
+                        from Pedido pd 
+                        where pd.Cliente_id = @Cliente_id and pd.Plato_id=@Plato_id;
             ";
 
             DataTable table = new DataTable();
@@ -68,25 +69,24 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@PedidoId", id);
+                    myCommand.Parameters.AddWithValue("@Cliente_id", Cliente_id);
+                    myCommand.Parameters.AddWithValue("@Plato_id", Plato_id);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
-
                     myReader.Close();
                     mycon.Close();
                 }
             }
-
             return new JsonResult(table);
         }
 
         //ELIMINACION
-        [HttpDelete("{id}")]
-        public JsonResult Delete(int id)
+        [HttpDelete("{Cliente_id}/{Plato_id}")]
+        public JsonResult Delete(int Cliente_id, int Plato_id)
         {
             string query = @"
-                        delete from Pedido
-                        where id=@PedidoId;
+                        delete from Pedido pd 
+                        where pd.Cliente_id = @Cliente_id and pd.Plato_id=@Plato_id;
                         
             ";
 
@@ -98,7 +98,8 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@PedidoId", id);
+                    myCommand.Parameters.AddWithValue("@Cliente_id", Cliente_id);
+                    myCommand.Parameters.AddWithValue("@Plato_id", Plato_id);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -115,13 +116,13 @@ namespace WebApplication1.Controllers
 
 
         [HttpPut("{id}")]
-        public JsonResult Put(Pedido ped, int id)
+        public JsonResult Put(Pedido pedi, int id)
         {
             string query = @"
                         update Pedido set 
                         fecha =@PedidoFecha,
-                        Plato_id =@PedidoPlato_id,
-                        Cliente_id =@PedidoCliente_id,           
+                        Plato_id =@PedidoPlatoId,
+                        Cliente_id =@PedidoClienteId
                         where id =@PedidoId;
                         
             ";
@@ -134,10 +135,10 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@PedidoId", ped.id);
-                    myCommand.Parameters.AddWithValue("@PedidoFecha", ped.fecha);
-                    myCommand.Parameters.AddWithValue("@PedidoPlato_id", ped.Plato_id);
-                    myCommand.Parameters.AddWithValue("@PedidoCliente_id", ped.Cliente_id);
+                    myCommand.Parameters.AddWithValue("@PedidoId", pedi.id);
+                    myCommand.Parameters.AddWithValue("@PedidoFecha", pedi.fecha);
+                    myCommand.Parameters.AddWithValue("@PedidoPlatoId", pedi.Plato_id);
+                    myCommand.Parameters.AddWithValue("@PedidoClienteId", pedi.Cliente_id);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
