@@ -20,7 +20,7 @@ const Label = ({ objeto }) => {
 const EtiquetaInput = ({ objeto, valorInicial }) => {
 	const { inputs, cargarCampos, campoValido } = useContext(InputsContext);
 	const nameInput = `${objeto.nameInput}_${objeto.id}`;
-	
+
 	useEffect(() => {
 		if (
 			objeto.nameComponente === "Carrito" ||

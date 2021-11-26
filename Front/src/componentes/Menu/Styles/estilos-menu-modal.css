@@ -1,0 +1,235 @@
+.card-principal-menu-modal {
+	background-color: initial;
+	border-radius: 2px;
+	box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+.card-menu-modal {
+	padding: 0%;
+	margin: 0%;
+	border: none;
+	background-color: initial;
+}
+
+.card-principal-menu-modal .card-body {
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.card-principal-menu-modal .card-title {
+	font-size: 2rem;
+	color: #682828;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.card-principal-menu-modal .formulario_menu-modal {
+	display: grid;
+}
+
+.card-principal-menu-modal .formulario__label {
+	display: block;
+	font-weight: 900;
+	margin: 10px;
+	cursor: pointer;
+	width: fit-content;
+}
+
+.card-principal-menu-modal .formulario__textarea {
+	resize: none;
+	width: 100%;
+	background: #fff;
+	border-radius: 3px;
+	border: 1px solid;
+	line-height: 20px;
+	padding: 15px 40px 15px 20px;
+	transition: 0.3s ease all;
+	position: relative;
+	left: 15px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.card-principal-menu-modal .formulario__input {
+	width: 100%;
+	background: #ffff;
+	border: 1px solid;
+	border-radius: 3px;
+	height: 55px;
+	line-height: 5px;
+	transition: 0.3s ease all;
+	padding: 15px 40px 15px 20px;
+	position: relative;
+	left: 15px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.card-principal-menu-modal .formulario__grupo {
+	width: 100%;
+}
+
+.card-principal-menu-modal .formulario__input:focus,
+.card-principal-menu-modal .formulario__textarea:focus {
+	outline: none;
+	box-shadow: 3px 0px 30px #a3a3a380;
+}
+
+.card-principal-menu-modal .formulario__input-error,
+.card-principal-menu-modal .formulario__input-error1,
+.card-principal-menu-modal .formulario__input-error-activo,
+.card-principal-menu-modal .formulario__input-error1-activo {
+	font-size: 15px;
+	margin-bottom: 10px;
+	margin-top: -8px;
+	margin-left: 15px;
+	padding: 5px;
+	width: 94%;
+	display: none;
+}
+
+.card-principal-menu-modal .formulario__input-error-activo,
+.card-principal-menu-modal .formulario__input-error1-activo {
+	display: block;
+}
+
+.card-principal-menu-modal .formulario__validacion-estado {
+	display: flex;
+	position: relative;
+	right: 20px;
+	bottom: 5px;
+	font-size: 20px;
+	opacity: 0;
+}
+
+.card-principal-menu-modal
+	.formulario__grupo-textarea
+	> .formulario__validacion-estado {
+	right: 24px;
+	bottom: 5px;
+}
+
+.card-principal-menu-modal
+	.formulario__grupo-correcto
+	.formulario__validacion-estado {
+	color: #1ed12d;
+	opacity: 1;
+}
+.card-principal-menu-modal
+	.formulario__grupo-incorrecto
+	.formulario__validacion-estado {
+	color: #bb2929;
+	opacity: 1;
+}
+
+.card-principal-menu-modal .formulario__grupo-correcto .formulario__label {
+	color: #069e27;
+}
+.card-principal-menu-modal .formulario__grupo-incorrecto .formulario__label {
+	color: #bb2929;
+}
+
+.card-principal-menu-modal .formulario__grupo-correcto .formulario__input,
+.card-principal-menu-modal .formulario__grupo-correcto .formulario__textarea {
+	border: 2px solid #8ec79a;
+}
+
+.card-principal-menu-modal .formulario__grupo-incorrecto .formulario__input,
+.card-principal-menu-modal .formulario__grupo-incorrecto .formulario__textarea {
+	border: 2px solid #bb2929;
+}
+
+.card-principal-menu-modal .formulario__input-check {
+	background-color: #e8f0fe;
+}
+
+.card-principal-menu-modal .fas {
+	font-size: inherit;
+}
+
+.card-principal-menu-modal .formulario__btn {
+	height: 45px;
+	width: 100%;
+	background: teal;
+	/* background-color: var(--button-bg); */
+	color: #fffdff;
+	font-weight: bold;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: 0.5s ease all;
+	position: relative;
+	width: 97%;
+	left: 6px;
+}
+.card-principal-menu-modal .formulario__btn-limpiar {
+	height: 45px;
+	width: 100%;
+	background: crimson;
+	/* background-color: var(--button-bg); */
+	color: #fffdff;
+	font-weight: bold;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: 0.5s ease all;
+	position: relative;
+	width: 97%;
+	left: 6px;
+}
+.card-principal-menu-modal .formulario__btn-ocultar {
+	height: 45px;
+	width: 100%;
+	background: rgb(110, 110, 110);
+	/* background-color: var(--button-bg); */
+	color: #fffdff;
+	font-weight: bold;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: 0.5s ease all;
+	position: relative;
+	width: 97%;
+	left: 6px;
+}
+.card-principal-menu-modal .formulario__btn-crear {
+	height: 45px;
+	width: 100%;
+	background: olivedrab;
+	/* background-color: var(--button-bg); */
+	color: #fffdff;
+	font-weight: bold;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: 0.5s ease all;
+	position: relative;
+	width: 97%;
+	left: 6px;
+}
+
+.card-principal-menu-modal .formulario__grupo-btn-enviar {
+	width: 100%;
+	height: 100%;
+}
+
+.card-principal-menu-modal .formulario__btn:hover,
+.card-principal-menu-modal .formulario__btn-crear:hover,
+.card-principal-menu-modal .formulario__btn-limpiar:hover,
+.card-principal-menu-modal .formulario__btn-ocultar:hover {
+	box-shadow: -5px 5px 5px 1px #a3a3a3;
+}
+
+.card-principal-menu-modal .card-hijo .card-menu:hover {
+	border-radius: 2px;
+	box-shadow: -5px 5px 20px 1px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: -5px 5px 20px 1px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: -5px 5px 20px 1px rgba(0, 0, 0, 0.75);
+}
+
+.card-principal-menu-modal .card > .card-body {
+	padding: 0%;
+	padding-left: 20px;
+	padding-right: 20px;
+}

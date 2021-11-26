@@ -5,9 +5,10 @@ import NavBar from "../Barra de Navegacion/NavBar";
 import MenuRedesSocialesFlotante from "../Barra de Navegacion/Efecto Fixed Top a NavBar y de Display a RedesSocialesFlotante/MenuRedesSocialesFlotante";
 import ColPagarAhoraProvider from "../../contexts/Carrito/ColPagarAhoraProvider";
 import Footer from "../Pie de Pagina/Footer";
-import SideBar from "../Barra de Navegacion/Menu SideBar/SideBar";
 import SideBarProvider from "../../contexts/SideBar/SideBarProvider";
 
+import PlatoProvider from "../../contexts/Menu/PlatoProvider";
+import ModalCrearEditarEliminarMenu from "../Menu/ModalCrudMenu/ModalCrearEditarEliminarMenu";
 // import Encabezado from "../encabezado/Encabezado";
 // import Footer from "../footer/Footer";
 
@@ -19,7 +20,10 @@ const Layout = ({ children }) => {
 					<ColPagarAhoraProvider>
 						<SideBarProvider>
 							<NavBar />
-							{children}
+							<PlatoProvider>
+								{children}
+								<ModalCrearEditarEliminarMenu />
+							</PlatoProvider>
 							<Footer />
 							<MenuRedesSocialesFlotante />
 						</SideBarProvider>

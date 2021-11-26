@@ -3,7 +3,7 @@ import SideBarContext from "./SideBarContext";
 
 const SideBarProvider = ({ children }) => {
 	const [sideBar, setSideBar] = useState(null);
-	const [hide, setHide] = useState(false);
+	const [hide, setHide] = useState(true);
 
 	const handleChangeSideBar = (valor) => {
 		setSideBar(valor);

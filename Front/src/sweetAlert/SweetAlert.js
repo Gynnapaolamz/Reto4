@@ -159,6 +159,133 @@ const sweetAlertPreguntarCerrarSesion1 = (logout) => {
 		}
 	});
 };
+const sweetAlertPreguntarCrearEditarEliminar = (
+	formularioEditCrear,
+	saberCamposVerdadero,
+	valido,
+	reiniciarCampos,
+	reiniciarCampoValido,
+	datosMenu,
+	handleChangeDatosMenu,
+	handleFormularioOcultoEditCrear,
+	plato
+) => {
+	let forEditCrear;
+	MySwal.fire({
+		icon: "question",
+		title: `¿DESEAS ${formularioEditCrear} EL PLATO?`,
+		showConfirmButton: true,
+		showCancelButton: true,
+		confirmButtonColor: "/* seagreen *//* steelblue */teal",
+		confirmButtonText: "ACEPTAR",
+		cancelButtonText: "CANCELAR",
+	}).then((result) => {
+		if (result.isConfirmed) {
+			switch (formularioEditCrear) {
+				case "CREAR":
+					forEditCrear = "CREADO";
+					console.log("valido --- ", valido);
+					if (saberCamposVerdadero(valido)) {
+						const platoCreado = {
+							titulo: valido["nombrePlato"].name,
+							descripcion: valido["descripcionPlato"].name,
+							valor: "$" + valido["valorPlato"].name,
+							urlImagen: valido["imagenPlato"].name,
+						};
+
+						handleChangeDatosMenu([...datosMenu, platoCreado]);
+						reiniciarCampos();
+						reiniciarCampoValido();
+
+						MySwal.fire({
+							icon: "success",
+							title: `EL PLATO FUE ${forEditCrear} CON EXITO`,
+							showConfirmButton: false,
+							timer: 1800,
+						});
+					}
+					break;
+				case "ACTUALIZAR":
+					forEditCrear = "ACTUALIZADO";
+					if (saberCamposVerdadero(valido)) {
+						const auxDatosMenu = datosMenu.map((datoMenu) => {
+							if (datoMenu.idPlato === plato.idPlato) {
+								return {
+									...datoMenu,
+									titulo: valido["nombrePlato"].name,
+									descripcion: valido["descripcionPlato"].name,
+									valor: "$" + valido["valorPlato"].name,
+									urlImagen: valido["imagenPlato"].name,
+								};
+							}
+							return datoMenu;
+						});
+						handleChangeDatosMenu(auxDatosMenu);
+						const formCrearOcult = {
+							formularioOculto: false,
+							formularioEditCrear: "CREAR",
+						};
+						handleFormularioOcultoEditCrear(formCrearOcult);
+						reiniciarCampos();
+						reiniciarCampoValido();
+
+						MySwal.fire({
+							icon: "success",
+							title: `EL PLATO FUE ${forEditCrear} CON EXITO`,
+							showConfirmButton: false,
+							timer: 1800,
+						});
+					}
+					break;
+				case "ELIMINAR":
+					forEditCrear = "ELIMINADO";
+
+					const auxtDatosMenu = datosMenu.filter(
+						(datoMenu) => datoMenu.idPlato !== plato.idPlato
+					);
+
+					handleChangeDatosMenu(auxtDatosMenu);
+					handleFormularioOcultoEditCrear({
+						formularioOculto: false,
+						formularioEditCrear: "CREAR",
+					});
+
+					MySwal.fire({
+						icon: "success",
+						title: `EL PLATO FUE ${forEditCrear} CON EXITO`,
+						showConfirmButton: false,
+						timer: 1800,
+					});
+
+					break;
+
+				default:
+					break;
+			}
+		} else {
+			switch (formularioEditCrear) {
+				case "CREAR":
+					forEditCrear = "CREADO";
+					break;
+				case "ACTUALIZAR":
+					forEditCrear = "ACTUALIZADO";
+					break;
+				case "ELIMINAR":
+					forEditCrear = "ELIMINADO";
+					break;
+
+				default:
+					break;
+			}
+			MySwal.fire({
+				icon: "error",
+				title: `EL PLATO NO FUE ${forEditCrear}`,
+				showConfirmButton: false,
+				timer: 1800,
+			});
+		}
+	});
+};
 
 const sweetAlert = (position, icon, title, text, showConfirmButton, timer) => {
 	MySwal.fire({
@@ -177,4 +304,5 @@ export {
 	sweetAlertBtnEliminarPlatillo,
 	sweetAlertPreguntarCerrarSesion,
 	sweetAlertPreguntarCerrarSesion1,
+	sweetAlertPreguntarCrearEditarEliminar,
 };

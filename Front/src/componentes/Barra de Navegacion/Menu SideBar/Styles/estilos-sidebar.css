@@ -88,18 +88,19 @@
 .sidebar.close .nav-links i.arrow {
 	display: none;
 }
+.sidebar .nav-links li .div_icon_name,
 .sidebar .nav-links li a {
 	display: flex;
 	align-items: center;
 	text-decoration: none;
 }
-.sidebar .nav-links li a .link_name {
+.sidebar .nav-links li .div_icon_name .link_name {
 	font-size: 18px;
 	font-weight: 400;
 	color: #fff;
 	transition: all 0.4s ease;
 }
-.sidebar.close .nav-links li a .link_name {
+.sidebar.close .nav-links li .div_icon_name .link_name {
 	opacity: 0;
 	pointer-events: none;
 }

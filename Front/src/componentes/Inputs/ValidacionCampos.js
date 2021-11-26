@@ -7,6 +7,7 @@ const expresiones = {
 	usuario: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]{1,20}$/,
 	telefono: /^[0-9]\d{0,9}$/,
 	cantidadPersonas: /^[0-9]+$/,
+	valorPlato: /^[1-9]\d{1,5}$/,
 	indicacionesEspeciales: /^.{10,200}$/,
 	password: /^.{5,35}$/,
 };
@@ -22,10 +23,19 @@ const validarCampo = (expresion, valor) => {
 			if (
 				expresion !== "servicio" &&
 				expresion !== "fecha" &&
-				expresion !== "hora"
+				expresion !== "hora" &&
+				expresion !== "nombrePlato" &&
+				expresion !== "imagenPlato" &&
+				expresion !== "descripcionPlato"
 			) {
 				if (expresion.test(valor)) {
 					saber = true;
+					if (valor >= 50) {
+						saber = true;
+					} else {
+						saber = false;
+						error.error = true;
+					}
 				} else {
 					saber = false;
 					error.error = true;
@@ -46,6 +56,7 @@ const validarCampo = (expresion, valor) => {
 
 const validarFormulario = (nameExpresion, value) => {
 	let valCampo = null;
+	console.log("nameExpresion -- ", nameExpresion);
 	switch (nameExpresion) {
 		case "cantidad":
 			valCampo = validarCampo(expresiones.cantidad, value);
@@ -87,6 +98,18 @@ const validarFormulario = (nameExpresion, value) => {
 			valCampo = validarCampo(expresiones.password, value);
 			break;
 		case "terminos":
+			valCampo = validarCampo(nameExpresion, value);
+			break;
+		case "nombrePlato":
+			valCampo = validarCampo(nameExpresion, value);
+			break;
+		case "imagenPlato":
+			valCampo = validarCampo(nameExpresion, value);
+			break;
+		case "valorPlato":
+			valCampo = validarCampo(expresiones.valorPlato, value);
+			break;
+		case "descripcionPlato":
 			valCampo = validarCampo(nameExpresion, value);
 			break;
 		default:

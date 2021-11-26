@@ -5,6 +5,7 @@ const InputsProvider = ({ children }) => {
 	const [inputs, setInputs] = useState({});
 
 	const cargarCampos = (valor, name, validacionCampo, error) => {
+		console.log("name -- - ", name);
 		setInputs({
 			...inputs,
 			[name]: {
@@ -13,6 +14,10 @@ const InputsProvider = ({ children }) => {
 				error: error,
 			},
 		});
+	};
+
+	const handleChangeInputs = (valor) => {
+		setInputs(valor);
 	};
 
 	const reiniciarCampos = () => {
@@ -31,6 +36,10 @@ const InputsProvider = ({ children }) => {
 		});
 	};
 
+	const handleChangeCampoValido = (valor) => {
+		setValido(valor);
+	};
+
 	const reiniciarCampoValido = () => {
 		setValido({});
 	};
@@ -47,9 +56,11 @@ const InputsProvider = ({ children }) => {
 		reiniciarCampos,
 		valido,
 		campoValido,
+		handleChangeCampoValido,
 		reiniciarCampoValido,
 		totalCarrito,
 		actualizarTotalCarrito,
+		handleChangeInputs,
 	};
 	return (
 		<InputsContext.Provider value={data}>{children}</InputsContext.Provider>

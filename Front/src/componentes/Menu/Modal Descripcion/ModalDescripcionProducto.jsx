@@ -24,7 +24,7 @@ const ModalDescripcionProducto = () => {
 					<div className="modal-content">
 						<div className="modal-header">
 							<h5 className="modal-title" id="modalDescripcionProductoLabel">
-								{platoSeleccionado?.titulo}
+								{platoSeleccionado.plato?.titulo}
 							</h5>
 							<button
 								type="button"
@@ -35,7 +35,7 @@ const ModalDescripcionProducto = () => {
 						</div>
 						<div className="modal-body">
 							<img
-								src={platoSeleccionado?.urlImagen}
+								src={platoSeleccionado.plato?.urlImagen}
 								className="card-img-top"
 								alt="..."
 								style={{
@@ -47,7 +47,7 @@ const ModalDescripcionProducto = () => {
 							<EtiquetaP
 								objectArray={{
 									p_CallComponentBool: true,
-									p_texto: platoSeleccionado?.descripcion,
+									p_texto: platoSeleccionado.plato?.descripcion,
 								}}
 							/>
 						</div>
@@ -57,18 +57,31 @@ const ModalDescripcionProducto = () => {
 									<EtiquetaP
 										objectArray={{
 											p_CallComponentBool: true,
-											p_texto: platoSeleccionado?.valor,
+											p_texto: platoSeleccionado.plato?.valor,
 										}}
 									/>
 								</div>
 								<div className="div-contactanos col-lg-7 col-md-7">
-									<a
-										className="btn btn-outline-light btn-floating btn-primary"
-										href="/contactenos"
-										role="button"
-									>
-										¿PREGUNTAS? O CONTACTANOS
-									</a>
+									{platoSeleccionado.nameCompSelc === "menu" && (
+										<a
+											className="btn btn-outline-light btn-floating btn-primary"
+											href="/contactenos"
+											role="button"
+										>
+											¿PREGUNTAS? O CONTACTANOS
+										</a>
+									)}
+									{console.log("platoSeleccionado... --- ", platoSeleccionado)}
+									{platoSeleccionado.nameCompSelc === "menu_modal" && (
+										<a
+											className="btn btn-floating btn-primary"
+											data-bs-toggle="modal"
+											href="#ModalCrearEditarEliminarPlato"
+											role="button"
+										>
+											REGRESAR
+										</a>
+									)}
 								</div>
 							</div>
 						</div>

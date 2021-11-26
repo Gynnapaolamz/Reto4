@@ -23,7 +23,7 @@ const SideBar = () => {
 			>
 				<ul className="nav-links">
 					<li>
-						<a href="#!" style={{ pointerEvents: "none" }}>
+						<div className="div_icon_name">
 							<i
 								className="bx bx-grid-alt"
 								style={{ pointerEvents: "all" }}
@@ -42,12 +42,12 @@ const SideBar = () => {
 							>
 								Dashboard
 							</span>
-						</a>
+						</div>
 					</li>
 
 					<li>
 						<div className="iocn-link">
-							<a href="#!" style={{ pointerEvents: "none" }}>
+							<div className="div_icon_name">
 								<i
 									className="bx bx-collection"
 									style={{ pointerEvents: "all" }}
@@ -66,7 +66,7 @@ const SideBar = () => {
 								>
 									Category
 								</span>
-							</a>
+							</div>
 							<i
 								className="bx bxs-chevron-down arrow"
 								onClick={(e) => {
@@ -101,7 +101,7 @@ const SideBar = () => {
 
 					<li>
 						<div className="iocn-link">
-							<a href="#!" style={{ pointerEvents: "none" }}>
+							<div className="div_icon_name">
 								<i
 									className="bx bx-book-alt"
 									style={{ pointerEvents: "all" }}
@@ -112,7 +112,9 @@ const SideBar = () => {
 								/>
 								<span
 									className="link_name"
-									style={{ pointerEvents: "all" }}
+									style={{
+										pointerEvents: "all",
+									}}
 									onClick={(e) => {
 										e.preventDefault();
 										refSideBar.current.classList.toggle("close");
@@ -120,7 +122,7 @@ const SideBar = () => {
 								>
 									Posts
 								</span>
-							</a>
+							</div>
 							<i
 								className="bx bxs-chevron-down arrow"
 								onClick={(e) => {
@@ -153,9 +155,9 @@ const SideBar = () => {
 					</li>
 
 					<li>
-						<a href="#!" style={{ pointerEvents: "none" }}>
+						<div className="div_icon_name">
 							<i
-								className="bx bx-pie-chart-alt-2"
+								className="bx bxs-food-menu"
 								style={{ pointerEvents: "all" }}
 								onClick={(e) => {
 									e.preventDefault();
@@ -164,33 +166,34 @@ const SideBar = () => {
 							/>
 							<span
 								className="link_name"
-								style={{ pointerEvents: "all" }}
-								onClick={(e) => {
-									e.preventDefault();
-									alert("Analytics");
+								style={{
+									width: "100%",
 								}}
+								data-bs-toggle="modal"
+								href="#ModalCrearEditarEliminarPlato"
 							>
-								Analytics
+								MENU
 							</span>
-						</a>
+						</div>
 						<ul className="sub-menu blank">
 							<li>
 								<a
 									className="link_name"
 									href="#!"
-									style={{ pointerEvents: "none" }}
+									data-bs-toggle="modal"
+									data-bs-target="#ModalCrearEditarEliminarPlato"
+									style={{ pointerEvents: "all" }}
 								>
-									Analytics
+									MENU
 								</a>
 							</li>
 						</ul>
 					</li>
 
 					<li>
-						<a href="#!" style={{ pointerEvents: "none" }}>
+						<div className="div_icon_name">
 							<i
 								className="bx bx-line-chart"
-								style={{ pointerEvents: "all" }}
 								onClick={(e) => {
 									e.preventDefault();
 									refSideBar.current.classList.toggle("close");
@@ -198,7 +201,6 @@ const SideBar = () => {
 							/>
 							<span
 								className="link_name"
-								style={{ pointerEvents: "all" }}
 								onClick={(e) => {
 									e.preventDefault();
 									alert("Chart");
@@ -206,7 +208,7 @@ const SideBar = () => {
 							>
 								Chart
 							</span>
-						</a>
+						</div>
 						<ul className="sub-menu blank">
 							<li>
 								<a
@@ -215,127 +217,6 @@ const SideBar = () => {
 									style={{ pointerEvents: "none" }}
 								>
 									Chart
-								</a>
-							</li>
-						</ul>
-					</li>
-
-					<li>
-						<div className="iocn-link">
-							<a href="#!" style={{ pointerEvents: "none" }}>
-								<i
-									className="bx bx-plug"
-									style={{ pointerEvents: "all" }}
-									onClick={(e) => {
-										e.preventDefault();
-										refSideBar.current.classList.toggle("close");
-									}}
-								/>
-								<span
-									className="link_name"
-									style={{ pointerEvents: "all" }}
-									onClick={(e) => {
-										e.preventDefault();
-										refSideBar.current.classList.toggle("close");
-									}}
-								>
-									Plugins
-								</span>
-							</a>
-							<i
-								className="bx bxs-chevron-down arrow"
-								onClick={(e) => {
-									e.target.parentElement.parentElement.classList.toggle(
-										"showMenu"
-									);
-								}}
-							/>
-						</div>
-						<ul className="sub-menu">
-							<li>
-								<a
-									className="link_name"
-									href="#!"
-									style={{ pointerEvents: "none" }}
-								>
-									Plugins
-								</a>
-							</li>
-							<li>
-								<a href="#!">UI Face</a>
-							</li>
-							<li>
-								<a href="#!">Pigments</a>
-							</li>
-							<li>
-								<a href="#!">Box Icons</a>
-							</li>
-						</ul>
-					</li>
-
-					<li>
-						<a href="#!" style={{ pointerEvents: "none" }}>
-							<i
-								className="bx bx-compass"
-								style={{ pointerEvents: "all" }}
-								onClick={(e) => {
-									e.preventDefault();
-									refSideBar.current.classList.toggle("close");
-								}}
-							/>
-							<span
-								className="link_name"
-								style={{ pointerEvents: "all" }}
-								onClick={(e) => {
-									e.preventDefault();
-									alert("Explore");
-								}}
-							>
-								Explore
-							</span>
-						</a>
-						<ul className="sub-menu blank">
-							<li>
-								<a
-									className="link_name"
-									href="#!"
-									style={{ pointerEvents: "none" }}
-								>
-									Explore
-								</a>
-							</li>
-						</ul>
-					</li>
-
-					<li>
-						<a href="#!" style={{ pointerEvents: "none" }}>
-							<i
-								className="bx bx-history"
-								style={{ pointerEvents: "all" }}
-								onClick={(e) => {
-									e.preventDefault();
-									refSideBar.current.classList.toggle("close");
-								}}
-							/>
-							<span
-								className="link_name"
-								style={{ pointerEvents: "all" }}
-								onClick={(e) => {
-									e.preventDefault();
-									alert("History");
-								}}
-							>
-								History
-							</span>
-						</a>
-						<ul className="sub-menu blank">
-							<li>
-								<a
-									className="link_name"
-									href="#!"
-									style={{ pointerEvents: "none" }}
-								>
-									History
 								</a>
 							</li>
 						</ul>

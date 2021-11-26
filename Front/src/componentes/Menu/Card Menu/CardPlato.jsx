@@ -22,7 +22,7 @@ const CardPlato = ({ plato }) => {
 						data-bs-toggle="modal"
 						data-bs-target="#modalDescripcionProducto"
 						onClick={() => {
-							selectedDish(plato);
+							selectedDish({ nameCompSelc: "menu", plato: plato });
 						}}
 					>
 						<img
@@ -36,15 +36,15 @@ const CardPlato = ({ plato }) => {
 
 						<div className="card-body">
 							<div className="card-title">
-								<h5>{plato.titulo}</h5>
+								<h4>{plato.titulo}</h4>
 							</div>
 							<p className="card-text">
-								{plato.descripcion.substr(0, 70) + "........."}
+								{plato.descripcion.substr(0, 50) + "........."}
 							</p>
 						</div>
 					</div>
 
-					<div className="card-body card-body-carrito mt-lg-1 mt-md-1 mt-sm-1">
+					<div className="card-footer card-body-carrito mt-lg-1 mt-md-1 mt-sm-1">
 						<div className="row">
 							<div className="col-cantidad col-lg-12 col-md-12">
 								<p>
