@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\WebApplication1",
-    "\\WebApplication1\\Controllers"
+    "\\WebApplication1\\Controllers",
+    "\\WebApplication1\\Models"
   ],
-  "SelectedNode": "\\WebApplication1\\Controllers\\EmpleadoController.cs",
+  "SelectedNode": "\\WebApplication1\\Controllers\\ServicioController.cs",
   "PreviewInSolutionExplorer": false
 }

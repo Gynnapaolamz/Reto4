@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FcZ6HMPOma9dSxSQZRZcxhk3HpIJxNnjtHohdplXCe27WE77WEG9U/QnMnwfd2sCEvffSCk1X1cz+TUF3INxTw==",
+  "dgSpecHash": "qypLtFHX0GV1Eo6fjC+ue4H/fTrWFKYEBx0vsedWTM39x+1Ai4plCCPy9l5gCKVByppe9TRA+jstq1dQmlmGHA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ACER\\Documents\\VISUALc#\\IntentoOne\\WebApplication1\\WebApplication1.csproj",
+  "projectFilePath": "C:\\Users\\ACER\\Documents\\GitHub\\Reto4\\IntentoOne\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",

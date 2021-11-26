@@ -6,29 +6,27 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using WebApplication1.Models;
 
-
 namespace WebApplication1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PedidoController : ControllerBase
+    public class ClientesController : ControllerBase
     {
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _env;
-        public PedidoController(IConfiguration configuration, IWebHostEnvironment env)
+        public  ClientesController(IConfiguration configuration, IWebHostEnvironment env)
         {
             _configuration = configuration;
             _env = env;
         }
 
-        //CONSULTA
         [HttpGet]
         public JsonResult Get()
         {
             string query = @"
-                        select id, fecha, Plato_id, Cliente_id
-                        from 
-                        Pedido
+                        select id,nombre,descripcion,nombreusuario,password
+                        from Cliente
+                       
             ";
 
             DataTable table = new DataTable();
@@ -51,14 +49,14 @@ namespace WebApplication1.Controllers
         }
 
         //CONSULTA
-        [HttpGet("{Cliente_id}/{Plato_id}")]
+        [HttpGet("{id}")]
 
-        public JsonResult Get(int Cliente_id, int Plato_id)
+        public JsonResult Get(int id)
         {
             string query = @"
-                        select id, fecha 
-                        from Pedido pd 
-                        where pd.Cliente_id = @Cliente_id and pd.Plato_id=@Plato_id;
+                        select id,nombre,descripcion,nombreusuario,password
+                        from Cliente
+                        where id=@ClienteId;
             ";
 
             DataTable table = new DataTable();
@@ -69,24 +67,26 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@Cliente_id", Cliente_id);
-                    myCommand.Parameters.AddWithValue("@Plato_id", Plato_id);
+                    myCommand.Parameters.AddWithValue("@ClienteId", id);
+
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
+
                     myReader.Close();
                     mycon.Close();
                 }
             }
+
             return new JsonResult(table);
         }
 
         //ELIMINACION
-        [HttpDelete("{Cliente_id}/{Plato_id}")]
-        public JsonResult Delete(int Cliente_id, int Plato_id)
+        [HttpDelete("{id}")]
+        public JsonResult Delete(int id)
         {
             string query = @"
-                        delete from Pedido pd 
-                        where pd.Cliente_id = @Cliente_id and pd.Plato_id=@Plato_id;
+                        delete from Cliente 
+                        where id=@ClienteId;
                         
             ";
 
@@ -98,8 +98,7 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@Cliente_id", Cliente_id);
-                    myCommand.Parameters.AddWithValue("@Plato_id", Plato_id);
+                    myCommand.Parameters.AddWithValue("ClienteId", id);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -116,14 +115,15 @@ namespace WebApplication1.Controllers
 
 
         [HttpPut("{id}")]
-        public JsonResult Put(Pedido pedi, int id)
+        public JsonResult Put(Cliente cli, int id)
         {
             string query = @"
-                        update Pedido set 
-                        fecha =@PedidoFecha,
-                        Plato_id =@PedidoPlatoId,
-                        Cliente_id =@PedidoClienteId
-                        where id =@PedidoId;
+                        update Cliente set 
+                        nombre =@ClienteNombre,
+                        descripcion =@ClienteDescripcion,
+                        nombreusuario =@ClienteNombreUsuario,
+                        password =@ClientePassword
+                        where id =@ClienteId;
                         
             ";
 
@@ -135,10 +135,11 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@PedidoId", pedi.id);
-                    myCommand.Parameters.AddWithValue("@PedidoFecha", pedi.fecha);
-                    myCommand.Parameters.AddWithValue("@PedidoPlatoId", pedi.Plato_id);
-                    myCommand.Parameters.AddWithValue("@PedidoClienteId", pedi.Cliente_id);
+                    myCommand.Parameters.AddWithValue("@ClienteId", cli.id);
+                    myCommand.Parameters.AddWithValue("@ClienteNombre", cli.nombre);
+                    myCommand.Parameters.AddWithValue("@ClienteDescripcion", cli.descripcion);
+                    myCommand.Parameters.AddWithValue("@ClienteNombreUsuario", cli.nombreusuario);
+                    myCommand.Parameters.AddWithValue("@ClientePassword", cli.password);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -153,13 +154,13 @@ namespace WebApplication1.Controllers
         //CREACIÓN
 
         [HttpPost]
-        public JsonResult Post(Models.Pedido ped)
+        public JsonResult Post(Models.Cliente cli)
         {
             string query = @"
-                        insert into Pedido 
-                        (fecha,Plato_id,Cliente_id) 
+                        insert into Cliente 
+                        (nombre,descripcion,nombreusuario,password) 
                         values
-                         (@PedidoFecha,@PedidoPlato_id,@PedidoCliente_id) ;
+                         (@ClienteNombre,@ClienteDescripcion,@ClienteNombreUsuario,@ClientePassword) ;
                         
             ";
 
@@ -171,9 +172,10 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@PedidoFecha", ped.fecha);
-                    myCommand.Parameters.AddWithValue("@PedidoPlato_id", ped.Plato_id);
-                    myCommand.Parameters.AddWithValue("@PedidoCliente_id", ped.Cliente_id);
+                    myCommand.Parameters.AddWithValue("@ClienteNombre", cli.nombre);
+                    myCommand.Parameters.AddWithValue("@ClienteDescripcion", cli.descripcion);
+                    myCommand.Parameters.AddWithValue("@ClienteNombreUsuario", cli.nombreusuario);
+                    myCommand.Parameters.AddWithValue("@ClientePassword", cli.password);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -185,6 +187,5 @@ namespace WebApplication1.Controllers
 
             return new JsonResult("Added Successfully");
         }
-
     }
 }
