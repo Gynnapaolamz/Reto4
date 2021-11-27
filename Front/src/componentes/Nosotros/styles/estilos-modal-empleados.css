@@ -1,91 +1,92 @@
 /* ESTILOS BOTÓN ELIMINAR EMPLEADO  */
 .buttonEliminarEmpleado {
-    width: 10rem;
-    height: 2.5rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    background: red;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
-    background: #e62222;
+	width: 100%;
+	height: 2.5rem;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	background: red;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+	background: #e62222;
 }
 
-.buttonEliminarEmpleado, .buttonEliminarEmpleado span {
-    transition: 200ms;
+.buttonEliminarEmpleado,
+.buttonEliminarEmpleado span {
+	transition: 200ms;
 }
 
 .buttonEliminarEmpleado .text {
-    transform: translateX(35px);
-    color: white;
-    font-weight: bold;
+	transform: translateX(35px);
+	color: white;
+	font-weight: bold;
 }
 
 .buttonEliminarEmpleado .icon {
-    position: absolute;
-    border-left: 1px solid #c41b1b;
-    transform: translateX(110px);
-    height: 40px;
-    width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	position: absolute;
+	border-left: 1px solid #c41b1b;
+	transform: translateX(110px);
+	height: 40px;
+	width: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .buttonEliminarEmpleado svg {
-    width: 15px;
-    fill: #eee;
+	width: 15px;
+	fill: #eee;
 }
 
 .buttonEliminarEmpleado:hover {
-    background: #ff3636;
+	background: #ff3636;
 }
 
 .buttonEliminarEmpleado:hover .text {
-    color: transparent;
+	color: transparent;
 }
 
 .buttonEliminarEmpleado:hover .icon {
-    width: 150px;
-    border-left: none;
-    transform: translateX(0);
+	width: 150px;
+	border-left: none;
+	transform: translateX(0);
 }
 
 .buttonEliminarEmpleado:focus {
-    outline: none;
+	outline: none;
 }
 
 .buttonEliminarEmpleado:active .icon svg {
-    transform: scale(0.8);
+	transform: scale(0.8);
 }
 
 /* ESTILOS BOTÓN EDITAR EMPLEADO */
 .buttonEditarEmpleado {
-    padding: 1.3em 3em;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #000;
-    background-color: limegreen;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-    margin-bottom: 1rem;
-    width: 10rem;
+	padding: 1.3em 3em;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 2.5px;
+	font-weight: 500;
+	color: #000;
+	background-color: limegreen;
+	border: none;
+	border-radius: 45px;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+	outline: none;
+	margin-bottom: 1rem;
+	width: 10rem;
 }
 
 .buttonEditarEmpleado:hover {
-    background-color: #2EE59D;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-    color: #fff;
-    transform: translateY(-7px);
+	background-color: #2ee59d;
+	box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+	color: #fff;
+	transform: translateY(-7px);
 }
 
 .buttonEditarEmpleado:active {
-    transform: translateY(-1px);
+	transform: translateY(-1px);
 }

@@ -234,7 +234,10 @@ const ModalTestimonios = () => {
 								{modalTestimoniales.map((testimonial, index) => {
 									Object.assign(testimonial, { id: index });
 									return (
-										<div className="col-12 col-md-6 col-lg-4 mt-4" key={index}>
+										<div
+											className="col-12 col-md-6 col-lg-4 mt-4 d-flex align-items-center justify-content-center"
+											key={index}
+										>
 											<div className="card">
 												<div className="card-body">
 													<div className="row">
@@ -268,6 +271,7 @@ const ModalTestimonios = () => {
 																		testimonial
 																	);
 																}}
+																style={{ width: "95%" }}
 															>
 																EDITAR
 															</button>
