@@ -237,7 +237,7 @@ const ModalEmpleados = () => {
 
 							<div className="row d-flex justify-content-evenly">
 								{modalTrabajadores.map((trabajador, index) => {
-									Object.assign(trabajador, { id: index });
+									
 									return (
 										<div
 											key={index}

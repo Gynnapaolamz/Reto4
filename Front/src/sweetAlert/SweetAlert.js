@@ -462,6 +462,16 @@ const sweetAlertBtnConfirmarEmpleadoEditado = (
 			switch (formEmpleado.nameAction) {
 				case "CREAR":
 					console.log("CREAR");
+					fetch("http://localhost:15937/api/empleado/", {
+						method: "POST",
+						body: {
+							nombre: inputsModalTrabajadores.nombre,
+							ocupacion: inputsModalTrabajadores.ocupacion,
+							imagen: inputsModalTrabajadores.imagen
+						}, headers: new Headers()
+					})
+						.then((response) => { console.log("response ", response) })
+					//.then()
 					handleChangeModalTrabajadores([
 						...modalTrabajadores,
 						inputsModalTrabajadores,
@@ -550,25 +560,42 @@ const sweetAlertBtnEliminarEmpleado = (
 		cancelButtonText: "Cancelar",
 	}).then((result) => {
 		if (result.isConfirmed) {
-			handleChangeModalTrabajadores(
-				modalTrabajadores.filter((trab) => trab.id !== trabajador.id)
-			);
+			fetch("http://localhost:15937/api/empleado/" + trabajador.id, {
+				method: "DELETE",
+			})
+				.then((response) => response.json())
+				.then((data) => {
+					handleChangeModalTrabajadores(
+						modalTrabajadores.filter((trab) => trab.id !== trabajador.id)
+					);
 
-			handleInputsModalTrabajadores({
-				id: "",
-				nombre: "",
-				ocupacion: "",
-				imagen: "",
-			});
+					handleInputsModalTrabajadores({
+						id: "",
+						nombre: "",
+						ocupacion: "",
+						imagen: "",
+					});
 
-			sweetAlert(
-				"center",
-				"success",
-				"",
-				"EL EMPLEADO FUE ELIMINADO CON ÉXITO",
-				false,
-				2500
-			);
+					sweetAlert(
+						"center",
+						"success",
+						"",
+						"EL EMPLEADO FUE ELIMINADO CON ÉXITO",
+						false,
+						2500
+					);
+
+				}).catch(error => {
+					sweetAlert(
+						"center",
+						"success",
+						"",
+						error,
+						false,
+						2500
+					);
+				});
+
 		} else {
 			sweetAlert(
 				"center",
