@@ -25,7 +25,7 @@ namespace WebApplication1.Controllers
         public JsonResult Get()
         {
             string query = @"
-                        select id,nombre,descripcion,imagen,precio,Restaurante_id
+                        select id,titulo,descripcion,urlImagen,valor,Restaurante_id
                         from 
                         Plato
             ";
@@ -55,7 +55,7 @@ namespace WebApplication1.Controllers
         public JsonResult Get(int id)
         {
             string query = @"
-                        select id,nombre,descripcion,imagen,precio,Restaurante_id
+                        select id,titulo,descripcion,urlImagen,valor,Restaurante_id
                         from Plato
                         where id=@PlatoId;
             ";
@@ -120,15 +120,15 @@ namespace WebApplication1.Controllers
         {
             string query = @"
                         update Plato set 
-                        nombre =@PlatoNombre,
+                        titulo =@PlatoTitulo,
                         descripcion =@PlatoDescripcion,
-                        precio =@PlatoPrecio,
-                        imagen =@PlatoImagen,
+                        valor =@PlatoValor,
+                        urlImagen =@PlatourlImagen,
                         Restaurante_id=@PlatoRestauranteId
                         where id =@PlatoId;
                         
             ";
-
+            //id,titulo,descripcion,urlImagen,valor,Restaurante_id
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("TestAppCon");
             MySqlDataReader myReader;
@@ -138,10 +138,10 @@ namespace WebApplication1.Controllers
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
                     myCommand.Parameters.AddWithValue("@PlatoId", pla.id);
-                    myCommand.Parameters.AddWithValue("@PlatoNombre", pla.nombre);
+                    myCommand.Parameters.AddWithValue("@PlatoTitulo", pla.titulo);
                     myCommand.Parameters.AddWithValue("@PlatoDescripcion", pla.descripcion);
-                    myCommand.Parameters.AddWithValue("@PlatoPrecio", pla.precio);
-                    myCommand.Parameters.AddWithValue("@PlatoImagen", pla.imagen);
+                    myCommand.Parameters.AddWithValue("@PlatoValor", pla.valor);
+                    myCommand.Parameters.AddWithValue("@PlatourlImagen,", pla.urlImagen);
                     myCommand.Parameters.AddWithValue("@PlatoRestauranteId", pla.Restaurante_Id);
 
                     myReader = myCommand.ExecuteReader();
@@ -161,10 +161,9 @@ namespace WebApplication1.Controllers
         {
             string query = @"
                         insert into Plato 
-                        (nombre,descripcion,precio,imagen,Restaurante_id) 
+                        (titulo,descripcion,urlImagen,valor,Restaurante_id) 
                         values
-                         (@PlatoNombre,@PlatoDescripcion,@PlatoImagen,@PlatoPrecio,@PlatoRestauranteId) ;
-                        
+                         (@PlatoTitulo,@PlatoDescripcion,@PlatourlImagen,@PlatoValor,@PlatoRestauranteId) ;       
             ";
 
             DataTable table = new DataTable();
@@ -175,11 +174,10 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@ServicioNombre", pla.nombre);
-                    myCommand.Parameters.AddWithValue("@ServicioImagen", pla.imagen);
-                    myCommand.Parameters.AddWithValue("@ServicioDescripcion", pla.descripcion);
-                    myCommand.Parameters.AddWithValue("@PlatoPrecio", pla.precio);
-                    myCommand.Parameters.AddWithValue("@PlatoImagen", pla.imagen);
+                    myCommand.Parameters.AddWithValue("@PlatoTitulo", pla.titulo);
+                    myCommand.Parameters.AddWithValue("@PlatoDescripcion", pla.descripcion);
+                    myCommand.Parameters.AddWithValue("@PlatoValor", pla.valor);
+                    myCommand.Parameters.AddWithValue("@PlatourlImagen,", pla.urlImagen);
                     myCommand.Parameters.AddWithValue("@PlatoRestauranteId", pla.Restaurante_Id);
 
                     myReader = myCommand.ExecuteReader();

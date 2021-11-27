@@ -25,7 +25,7 @@ namespace WebApplication1.Controllers
         public JsonResult Get()
         {
             string query = @"
-                        select id,nombre,descripcion
+                        select id,titulo,descripcion
                         from 
                         Restaurante
             ";
@@ -57,8 +57,9 @@ namespace WebApplication1.Controllers
         {
             string query = @"
                         update Restaurante set 
-                        nombre =@RestauranteNombre,
-                        descripcion =@RestauranteDescripcion,
+                        titulo =@Restaurantetitulo,
+                        descripcion =@RestauranteDescripcion
+                        
                         where id =@RestauranteId;
                         
             ";
@@ -72,10 +73,10 @@ namespace WebApplication1.Controllers
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
                     myCommand.Parameters.AddWithValue("@RestauranteId", res.id);
-                    myCommand.Parameters.AddWithValue("@RestauranteNombre", res.nombre);
+                    myCommand.Parameters.AddWithValue("@Restaurantetitulo", res.titulo);
                     myCommand.Parameters.AddWithValue("@RestauranteDescripcion", res.descripcion);
                     
-
+                   
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
 
@@ -92,10 +93,10 @@ namespace WebApplication1.Controllers
         public JsonResult Post(Models.Restaurante res)
         {
             string query = @"
-                        insert into Plato 
+                        insert into Restaurante 
                         (nombre,descripcion) 
                         values
-                         (@RestauranteNombre,@RestauranteDescripcion) ;
+                         (@Restaurantetitulo,@RestauranteDescripcion) ;
                         
             ";
 
@@ -107,8 +108,9 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@RestauranteNombre", res.nombre);
+                    myCommand.Parameters.AddWithValue("@Restaurantetitulo", res.titulo);
                     myCommand.Parameters.AddWithValue("@RestauranteDescripcion", res.descripcion);
+                    
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);

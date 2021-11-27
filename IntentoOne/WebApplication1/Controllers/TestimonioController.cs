@@ -10,11 +10,11 @@ namespace WebApplication1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmpleadoController : ControllerBase
+    public class TestimonioController : ControllerBase
     {
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _env;
-        public EmpleadoController(IConfiguration configuration, IWebHostEnvironment env)
+        public TestimonioController(IConfiguration configuration, IWebHostEnvironment env)
         {
             _configuration = configuration;
             _env = env;
@@ -24,8 +24,8 @@ namespace WebApplication1.Controllers
         public JsonResult Get()
         {
             string query = @"
-                        select id,nombre,ocupacion,imagen,Restaurante_id
-                        from Empleado
+                        select id,user,spanDescripcion,imgSrc,Cliente_id
+                        from Testimonios
                        
             ";
 
@@ -54,9 +54,9 @@ namespace WebApplication1.Controllers
         public JsonResult Get(int id)
         {
             string query = @"
-                        select id,nombre,ocupacion,imagen,Restaurante_id
-                        from Empleado
-                        where id=@EmpleadoId;
+                        select id,user,spanDescripcion,imgSrc,Cliente_id
+                        from Testimonios
+                        where id=@TestimoniosId;
             ";
 
             DataTable table = new DataTable();
@@ -67,7 +67,7 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@EmpleadoId", id);
+                    myCommand.Parameters.AddWithValue("@TestimoniosId", id);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -85,8 +85,8 @@ namespace WebApplication1.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                        delete from Empleado 
-                        where id=@EmpleadoId;
+                        delete from Testimonios
+                        where id=@TestimoniosId;
                         
             ";
 
@@ -98,7 +98,7 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@EmpleadoId", id);
+                    myCommand.Parameters.AddWithValue("@TestimoniosId", id);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -115,18 +115,18 @@ namespace WebApplication1.Controllers
 
 
         [HttpPut("{id}")]
-        public JsonResult Put(Empleado emp, int id)
+        public JsonResult Put(Testimonio test, int id)
         {
             string query = @"
-                        update Empleado set 
-                        nombre =@EmpleadosNombre,
-                        ocupacion =@EmpleadosOcupacion,
-                        imagen =@EmpleadosImagen,
-                        Restaurante_id =@EmpleadosRestauranteId
-                        where id =@EmpleadosId;
+                        update Testimonios set 
+                        user =@Testimoniosuser,
+                        spanDescripcion =@TestimoniosspanDescripcion,
+                        imgSrc =@TestimoniosimgSrc,
+                        Cliente_id =@TestimoniosCliente_id
+                        where id =@TestimoniosId;
                         
             ";
-
+            //id,user,spanDescripcion,imgSrc,Cliente_id
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("TestAppCon");
             MySqlDataReader myReader;
@@ -135,11 +135,11 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@EmpleadosId", emp.id);
-                    myCommand.Parameters.AddWithValue("@EmpleadosNombre", emp.nombre);
-                    myCommand.Parameters.AddWithValue("@EmpleadosOcupacion", emp.ocupacion);
-                    myCommand.Parameters.AddWithValue("@EmpleadosImagen", emp.imagen);
-                    myCommand.Parameters.AddWithValue("@EmpleadosRestauranteId", emp.Restaurante_Id);
+                    myCommand.Parameters.AddWithValue("@TestimoniosId", test.id);
+                    myCommand.Parameters.AddWithValue("@Testimoniosuser", test.user);
+                    myCommand.Parameters.AddWithValue("@TestimoniosspanDescripcion", test.spanDescripcion);
+                    myCommand.Parameters.AddWithValue("@TestimoniosimgSrc", test.imgSrc);
+                    myCommand.Parameters.AddWithValue("@TestimoniosCliente_id", test.Cliente_id);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -152,15 +152,15 @@ namespace WebApplication1.Controllers
             return new JsonResult("Updated Successfully");
         }
         //CREACIÓN
-        
+
         [HttpPost]
-        public JsonResult Post(Models.Empleado emp)
+        public JsonResult Post(Models.Testimonio test)
         {
             string query = @"
-                        insert into Empleado 
-                        (nombre,ocupacion,imagen,Restaurante_id) 
+                        insert into Testimonios
+                        (user,spanDescripcion,imgSrc,Cliente_id) 
                         values
-                         (@EmpleadosNombre,@EmpleadosOcupacion,@EmpleadosImagen,@EmpleadosRestauranteId) ;
+                         (@Testimoniosuser,@TestimoniosspanDescripcion,@TestimoniosimgSrc,@TestimoniosCliente_id);
                         
             ";
 
@@ -172,10 +172,10 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@EmpleadosNombre", emp.nombre);
-                    myCommand.Parameters.AddWithValue("@EmpleadosImagen", emp.imagen);
-                    myCommand.Parameters.AddWithValue("@EmpleadosOcupacion", emp.ocupacion);
-                    myCommand.Parameters.AddWithValue("@EmpleadosRestauranteId", emp.Restaurante_Id);
+                    myCommand.Parameters.AddWithValue("@Testimoniosuser", test.user);
+                    myCommand.Parameters.AddWithValue("@TestimoniosspanDescripcion", test.spanDescripcion);
+                    myCommand.Parameters.AddWithValue("@TestimoniosimgSrc", test.imgSrc);
+                    myCommand.Parameters.AddWithValue("@TestimoniosCliente_id", test.Cliente_id);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -186,6 +186,6 @@ namespace WebApplication1.Controllers
             }
 
             return new JsonResult("Added Successfully");
-        } 
+        }
     }
 }

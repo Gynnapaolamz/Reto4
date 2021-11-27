@@ -24,7 +24,7 @@ namespace WebApplication1.Controllers
         public JsonResult Get()
         {
             string query = @"
-                        select id,nombre,descripcion,nombreusuario,password
+                        select id,nombreusuario,password
                         from Cliente
                        
             ";
@@ -54,7 +54,7 @@ namespace WebApplication1.Controllers
         public JsonResult Get(int id)
         {
             string query = @"
-                        select id,nombre,descripcion,nombreusuario,password
+                        select id,nombreusuario,password
                         from Cliente
                         where id=@ClienteId;
             ";
@@ -119,8 +119,6 @@ namespace WebApplication1.Controllers
         {
             string query = @"
                         update Cliente set 
-                        nombre =@ClienteNombre,
-                        descripcion =@ClienteDescripcion,
                         nombreusuario =@ClienteNombreUsuario,
                         password =@ClientePassword
                         where id =@ClienteId;
@@ -136,8 +134,6 @@ namespace WebApplication1.Controllers
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
                     myCommand.Parameters.AddWithValue("@ClienteId", cli.id);
-                    myCommand.Parameters.AddWithValue("@ClienteNombre", cli.nombre);
-                    myCommand.Parameters.AddWithValue("@ClienteDescripcion", cli.descripcion);
                     myCommand.Parameters.AddWithValue("@ClienteNombreUsuario", cli.nombreusuario);
                     myCommand.Parameters.AddWithValue("@ClientePassword", cli.password);
 
@@ -157,10 +153,10 @@ namespace WebApplication1.Controllers
         public JsonResult Post(Models.Cliente cli)
         {
             string query = @"
-                        insert into Cliente 
-                        (nombre,descripcion,nombreusuario,password) 
+                        insert ignore into Cliente 
+                        (nombreusuario,password) 
                         values
-                         (@ClienteNombre,@ClienteDescripcion,@ClienteNombreUsuario,@ClientePassword) ;
+                         (@ClienteNombreUsuario,@ClientePassword) ;
                         
             ";
 
@@ -172,8 +168,6 @@ namespace WebApplication1.Controllers
                 mycon.Open();
                 using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
                 {
-                    myCommand.Parameters.AddWithValue("@ClienteNombre", cli.nombre);
-                    myCommand.Parameters.AddWithValue("@ClienteDescripcion", cli.descripcion);
                     myCommand.Parameters.AddWithValue("@ClienteNombreUsuario", cli.nombreusuario);
                     myCommand.Parameters.AddWithValue("@ClientePassword", cli.password);
 
