@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import EmpleadosContext from "./EmpleadosContext";
 // import DatosTrabajadores from "../../consts json/Nosotros/DatosTrabajadores.json";
+<<<<<<< HEAD
 // import { getEmpleados } from "../../services/EmpleadoService/Empleado";
 
 const EmpleadosProvider = ({ children }) => {
@@ -14,6 +15,13 @@ const EmpleadosProvider = ({ children }) => {
 
 	getEmpleados();
 	const [modalTrabajadores, setModalTrabajadores] = useState();
+=======
+import { getEmpleados } from "../../services/EmpleadoService/ServiceEmpleado";
+// import { getEmpleados } from "../../services/EmpleadoService/Empleado";
+
+const EmpleadosProvider = ({ children }) => {
+	const [modalTrabajadores, setModalTrabajadores] = useState(getEmpleados());
+>>>>>>> bf22e368a2cd65ac45ebf038aa727a476c7ce510
 
 	const handleChangeModalTrabajadores = (valor) => {
 		setModalTrabajadores(valor);
