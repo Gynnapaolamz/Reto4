@@ -4,6 +4,7 @@ import DatosTrabajadores from "../../consts json/Nosotros/DatosTrabajadores.json
 // import { getEmpleados } from "../../services/EmpleadoService/Empleado";
 
 const EmpleadosProvider = ({ children }) => {
+<<<<<<< Updated upstream
 	const getEmpleados = () => {
 		fetch("http://localhost:15937/api/empleado")
 			.then (response => response.json())
@@ -14,6 +15,9 @@ const EmpleadosProvider = ({ children }) => {
 
 	getEmpleados();
 	const [modalTrabajadores, setModalTrabajadores] = useState(DatosTrabajadores);
+=======
+	const [modalTrabajadores, setModalTrabajadores] = useState(getEmpleados);
+>>>>>>> Stashed changes
 
 	const handleChangeModalTrabajadores = (valor) => {
 		setModalTrabajadores(valor);
