@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import InputsContext from "../../../contexts/Inputs/InputsContext";
 import PlatoContext from "../../../contexts/Menu/PlatoContext";
-import { sweetAlertPreguntarCrearEditarEliminar } from "../../../sweetAlert/SweetAlert";
+import { sweetAlertPreguntarCrearEditarEliminarPlato } from "../../../sweetAlert/SweetAlert";
 import EtiquetaFontAwesomeIcon from "../../FontAwesome/EtiquetaFontAwesomeIcon";
 
 const CardModalPlato = ({ plato }) => {
@@ -179,7 +179,7 @@ const CardModalPlato = ({ plato }) => {
 												nameCompSelc: "menu_modal",
 												plato: plato,
 											});
-											sweetAlertPreguntarCrearEditarEliminar(
+											sweetAlertPreguntarCrearEditarEliminarPlato(
 												formCrearOcult.formularioEditCrear,
 												saberCamposVerdadero,
 												valido,

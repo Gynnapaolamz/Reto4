@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import DatosTestimonios from "../../consts json/Nosotros/DatosTestimonios.json";
+import TestimoniosContext from "../../contexts/Nosotros/TestimoniosContext";
 const CarruselTestimonios = () => {
-	const datosTestimonios = DatosTestimonios;
+	const { modalTestimoniales } = useContext(TestimoniosContext);
+
 	return (
 		<>
 			{/*Carrusel*/}
@@ -12,12 +14,18 @@ const CarruselTestimonios = () => {
 			>
 				{/* Indicators */}
 				<div className="carousel-indicators mb-0">
-					{datosTestimonios.map((testimonio, index) => {
+					{/*Reemplazo el arreglo que traia los datos de DatosTestimonios.json
+          por modalTestimoniales que es donde se guardan y actualizan*/}
+					{modalTestimoniales.map((testimonio, index) => {
 						return (
 							<button
 								key={index}
-								{...testimonio.carouselIndicactors}
+								data-bs-target="#carouselDarkVariant"
+								type="button"
+								{...(index === 0 && { className: "active" })}
+								{...(index === 0 && { "aria-current": "true" })}
 								data-bs-slide-to={index}
+								aria-label={`Slide ${index + 1}`}
 							/>
 						);
 					})}
@@ -27,9 +35,13 @@ const CarruselTestimonios = () => {
 				{/* Inner */}
 				<div className="carousel-inner pt-5 pb-5">
 					{/* Single item */}
-					{datosTestimonios.map((testimonio, index) => {
+					{modalTestimoniales.map((testimonio, index) => {
+						console.log("testimonio: --  ", testimonio, " index -- ", index);
 						return (
-							<div key={index} {...testimonio.divCarouselItem}>
+							<div
+								key={index}
+								className={`carousel-item ${index === 0 ? "active" : ""}`}
+							>
 								<div className="row d-flex justify-content-center">
 									<div className="col-md-8 col-lg-9 col-xl-8">
 										<div className="d-flex">

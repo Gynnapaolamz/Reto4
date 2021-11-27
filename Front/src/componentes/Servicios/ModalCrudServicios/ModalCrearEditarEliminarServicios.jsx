@@ -1,23 +1,26 @@
 import React, { useContext } from "react";
-import DatosInputsModalMenu from "../../../consts json/Nosotros/DatosInputsModalMenu.json";
 import InputsProvider from "../../../contexts/Inputs/InputsProvider";
-import PlatoContext from "../../../contexts/Menu/PlatoContext";
-import InputsContext from "../../../contexts/Inputs/InputsContext";
+import ServiciosContext from "../../../contexts/Servicios/ServiciosContext";
+import DatosInputsModalServicios from "../../../consts json/Servicios/DatosInputsModalServicios.json";
 import EtiquetaFontAwesomeIcon from "../../FontAwesome/EtiquetaFontAwesomeIcon";
 import Input from "../../Inputs/Input";
-import "../Styles/estilos-menu-modal.css";
-import ButtonModalCrearEditarEliminarMenu from "./ButtonModalCrearEditarEliminarMenu";
-import ModalDescripcionProducto from "../../Menu/Modal Descripcion/ModalDescripcionProducto";
-import CardModalPlato from "./CardModalPlato";
+import InputsContext from "../../../contexts/Inputs/InputsContext";
+import CardModalServicio from "./CardModalServicio";
+import ButtonModalCrearEditarEliminarServicio from "./ButtonModalCrearEditarEliminarServicio";
 
-const CardsPlatos = () => {
-	const { datosMenu } = useContext(PlatoContext);
+const CardsServicios = () => {
+	const { datosServicios } = useContext(ServiciosContext);
 	return (
 		<>
-			<div className="row card-hijo">
-				{datosMenu.map((plato, index) => {
-					Object.assign(plato, { idPlato: index });
-					return <CardModalPlato key={index} plato={plato} />;
+			<div
+				className={`row ${
+					datosServicios.length === 1 &&
+					"d-flex align-items-center justify-content-center"
+				}`}
+			>
+				{datosServicios.map((servicio, index) => {
+					Object.assign(servicio, { idServicio: index });
+					return <CardModalServicio key={index} servicio={servicio} />;
 				})}
 			</div>
 		</>
@@ -25,8 +28,9 @@ const CardsPlatos = () => {
 };
 
 const CardForm = () => {
-	const { formularioOcultoEditCrear, handleFormularioOcultoEditCrear } =
-		useContext(PlatoContext);
+	const { formularioOcultoEditCrear, handleChangeFormularioOcultoEditarCrear } =
+		useContext(ServiciosContext);
+
 	const { reiniciarCampos, reiniciarCampoValido } = useContext(InputsContext);
 	return (
 		<>
@@ -57,14 +61,10 @@ const CardForm = () => {
 										};
 										reiniciarCampos();
 										reiniciarCampoValido();
-										handleFormularioOcultoEditCrear(formCrearOcult);
-										console.log(
-											"formularioOcultoEditCrear --- ",
-											formularioOcultoEditCrear
-										);
+										handleChangeFormularioOcultoEditarCrear(formCrearOcult);
 									}}
 								>
-									<p style={{ fontSize: "20px" }}>CREAR PLATO</p>
+									<p style={{ fontSize: "20px" }}>CREAR SERVICIO</p>
 									<EtiquetaFontAwesomeIcon
 										objectArray={{
 											fontAwesomeIcon_CallComponentBool: true,
@@ -83,18 +83,18 @@ const CardForm = () => {
 								} `}
 							>
 								<h2 className="card-title my-5 text-center">
-									{formularioOcultoEditCrear.formularioEditCrear} PLATO
+									{formularioOcultoEditCrear.formularioEditCrear} SERVICIO
 								</h2>
 								<form
 									id="formulario_menu-modal"
 									className="row formulario_menu-modal d-flex"
 									noValidate
 								>
-									{DatosInputsModalMenu.map((objeto, index) => {
+									{DatosInputsModalServicios.map((objeto, index) => {
 										Object.assign(objeto, { id: index });
 										return <Input key={index} objeto={objeto} />;
 									})}
-									<ButtonModalCrearEditarEliminarMenu />
+									<ButtonModalCrearEditarEliminarServicio />
 								</form>
 							</div>
 							<div
@@ -103,7 +103,7 @@ const CardForm = () => {
 								tabIndex="0"
 								className="col-lg-12 d-flex align-items-center justify-content-center mt-5 scrollspy-example"
 							>
-								<CardsPlatos />
+								<CardsServicios />
 							</div>
 						</div>
 					</div>
@@ -113,12 +113,12 @@ const CardForm = () => {
 	);
 };
 
-const ModalCrearEditarEliminarMenu = () => {
+const ModalCrearEditarEliminarServicios = () => {
 	return (
 		<>
 			<div
 				className="modal fade"
-				id="ModalCrearEditarEliminarPlato"
+				id="ModalCrearEditarEliminarServicios"
 				tabIndex={-1}
 				aria-labelledby="exampleModalLabel"
 				aria-hidden="true"
@@ -135,7 +135,7 @@ const ModalCrearEditarEliminarMenu = () => {
 								}}
 								id="exampleModalLabel"
 							>
-								MENU
+								SERVICIOS
 							</h5>
 							<button
 								type="button"
@@ -152,9 +152,8 @@ const ModalCrearEditarEliminarMenu = () => {
 					</div>
 				</div>
 			</div>
-			<ModalDescripcionProducto />
 		</>
 	);
 };
 
-export default ModalCrearEditarEliminarMenu;
+export default ModalCrearEditarEliminarServicios;

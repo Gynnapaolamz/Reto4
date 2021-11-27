@@ -9,7 +9,6 @@ const CardsPlatos = () => {
 		<>
 			<div className="row card-hijo">
 				{datosMenu.map((plato, index) => {
-					Object.assign(plato, { idPlato: index });
 					return <CardPlato key={index} plato={plato} />;
 				})}
 			</div>

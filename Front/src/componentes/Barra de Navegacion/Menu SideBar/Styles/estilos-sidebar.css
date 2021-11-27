@@ -11,7 +11,7 @@
 	top: 131px;
 	left: 0;
 	height: 100%;
-	width: 260px;
+	width: 380px;
 	background: #11101d;
 	z-index: 100;
 	transition: all 0.5s ease;
@@ -105,21 +105,27 @@
 	pointer-events: none;
 }
 .sidebar .nav-links li .sub-menu {
-	padding: 6px 6px 14px 80px;
-	margin-top: -10px;
+	margin-top: -5px;
+	padding: 0%;
 	background: #1d1b31;
 	display: none;
 }
 .sidebar .nav-links li.showMenu .sub-menu {
 	display: block;
+	padding-top: 15px;
+	padding-bottom: 15px;
 }
 .sidebar .nav-links li .sub-menu a {
 	color: #fff;
 	font-size: 15px;
-	padding: 5px 0;
+	width: 100%;
+	padding: 10px;
 	white-space: nowrap;
 	opacity: 0.6;
 	transition: all 0.3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .sidebar .nav-links li .sub-menu a:hover {
 	opacity: 1;
