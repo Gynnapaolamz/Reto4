@@ -5,22 +5,18 @@ const saberCamposVerdadero = (camposReserva) => {
 	let saber = false;
 	if (Object.keys(camposReserva).length !== 0) {
 		console.log("camposReserva --- ", camposReserva);
-		if (camposReserva["nombrePlato"]?.campoValido) {
-			if (camposReserva["imagenPlato"]?.campoValido) {
-				if (camposReserva["valorPlato"]?.campoValido) {
-					if (camposReserva["descripcionPlato"]?.campoValido) {
-						saber = true;
-					} else {
-						mensaje = mensaje + "DESCRIPCION DEL PLATO";
-					}
+		if (camposReserva["nombreServicio"]?.campoValido) {
+			if (camposReserva["imagenServicio"]?.campoValido) {
+				if (camposReserva["descripcionServicio"]?.campoValido) {
+					saber = true;
 				} else {
-					mensaje = mensaje + "VALOR DEL PLATO";
+					mensaje = mensaje + "DESCRIPCION DEL SERVICIO";
 				}
 			} else {
-				mensaje = mensaje + "IMAGEN DEL PLATO";
+				mensaje = mensaje + "IMAGEN DEL SERVICIO";
 			}
 		} else {
-			mensaje = mensaje + "NOMBRE DEL PLATO";
+			mensaje = mensaje + "NOMBRE DEL SERVICIO";
 		}
 		mensaje = mensaje + " NO ES VALIDO";
 	} else {

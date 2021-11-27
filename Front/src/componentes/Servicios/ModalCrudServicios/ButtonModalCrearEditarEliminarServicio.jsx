@@ -1,45 +1,48 @@
 import React, { useContext } from "react";
 import InputsContext from "../../../contexts/Inputs/InputsContext";
-import PlatoContext from "../../../contexts/Menu/PlatoContext";
-import { sweetAlertPreguntarCrearEditarEliminarPlato } from "../../../sweetAlert/SweetAlert";
-import { saberCamposVerdadero } from "./ModalCrearEditElimMenu";
+import ServiciosContext from "../../../contexts/Servicios/ServiciosContext";
+import { sweetAlertPreguntarCrearEditarEliminarServicio } from "../../../sweetAlert/SweetAlert";
+import { saberCamposVerdadero } from "./ModalCrearEditElimServicio";
 
-const ButtonModalCrearEditarEliminarMenu = () => {
+const ButtonModalCrearEditarEliminarServicio = () => {
 	const { reiniciarCampos, valido, reiniciarCampoValido } =
 		useContext(InputsContext);
 	const {
-		datosMenu,
-		platoSeleccionado,
-		handleChangeDatosMenu,
-		handleFormularioOcultoEditCrear,
+		datosServicios,
+		handelChangeDatosServicios,
+		servicioSeleccionado,
 		formularioOcultoEditCrear,
-	} = useContext(PlatoContext);
+		handleChangeFormularioOcultoEditarCrear,
+		handelChangeDatosServiciosActualizar,
+		handelChangeDatosServiciosCrear,
+		handelChangeDatosServiciosEliminar,
+	} = useContext(ServiciosContext);
 	return (
 		<>
-			<div
-				className="col-lg-4 col-md-12 mt-2 text-center"
-				style={{ position: "relative", left: "7px" }}
-			>
+			<div className="col-lg-4 col-md-12 mt-2">
 				<div className="formulario__grupo formulario__grupo-btn-enviar">
 					<button
 						type="submit"
 						className="formulario__btn"
 						onClick={(e) => {
 							e.preventDefault();
-							sweetAlertPreguntarCrearEditarEliminarPlato(
-								formularioOcultoEditCrear.formularioEditCrear,
+							sweetAlertPreguntarCrearEditarEliminarServicio(
 								saberCamposVerdadero,
 								valido,
 								reiniciarCampos,
 								reiniciarCampoValido,
-								datosMenu,
-								handleChangeDatosMenu,
-								handleFormularioOcultoEditCrear,
-								platoSeleccionado.plato
+								datosServicios,
+								handelChangeDatosServicios,
+								handelChangeDatosServiciosCrear,
+								handelChangeDatosServiciosActualizar,
+								handelChangeDatosServiciosEliminar,
+								handleChangeFormularioOcultoEditarCrear,
+								servicioSeleccionado.servicio,
+								formularioOcultoEditCrear.formularioEditCrear
 							);
 						}}
 					>
-						{formularioOcultoEditCrear.formularioEditCrear} PLATO
+						{formularioOcultoEditCrear.formularioEditCrear} SERVICIO
 					</button>
 				</div>
 			</div>
@@ -72,7 +75,7 @@ const ButtonModalCrearEditarEliminarMenu = () => {
 								formularioOculto: false,
 								formularioEditCrear: "CREAR",
 							};
-							handleFormularioOcultoEditCrear(formCrearOcult);
+							handleChangeFormularioOcultoEditarCrear(formCrearOcult);
 							reiniciarCampos();
 							reiniciarCampoValido();
 						}}
@@ -85,4 +88,4 @@ const ButtonModalCrearEditarEliminarMenu = () => {
 	);
 };
 
-export default ButtonModalCrearEditarEliminarMenu;
+export default ButtonModalCrearEditarEliminarServicio;

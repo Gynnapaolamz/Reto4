@@ -1,46 +1,17 @@
 [
 	{
 		"imgSrc": "https://firebasestorage.googleapis.com/v0/b/juvetic-reto3.appspot.com/o/testimonio1%402x.png?alt=media&token=a446a7e0-dabc-4429-b234-fdd28c01eefe",
-		"imgAlt": "testimonio",
 		"spanDescripcion": "Excelente diseño de la carta, magnífica materia prima y ejecución. Atención eficiente y cordial, del tipo que hace que te sientas bien recibido y que el equipo está comprometido con hacer pasar a sus comensales un momento feliz. Una institución.",
-		"user": "Carlos Martines",
-		"divCarouselItem": {
-			"className": "carousel-item active"
-		},
-		"carouselIndicactors": {
-			"type": "button",
-			"data-bs-target": "#carouselDarkVariant",
-			"className": "active",
-			"aria-current": "true",
-			"aria-label": "Slide 1"
-		}
+		"user": "Carlos Martines"
 	},
 	{
 		"imgSrc": "https://firebasestorage.googleapis.com/v0/b/juvetic-reto3.appspot.com/o/testimonio2%402x.png?alt=media&token=5deb24b8-1f25-489d-9694-e0bc6851ceb5",
-		"imgAlt": "testimonio2",
 		"spanDescripcion": "Un local precioso, decorado con mucho gusto. Se nota que los dueños han puesto mucho esfuerzo e ilusión en el local.",
-		"user": "Daniela Manjarrez",
-		"divCarouselItem": {
-			"className": "carousel-item"
-		},
-		"carouselIndicactors": {
-			"type": "button",
-			"data-bs-target": "#carouselDarkVariant",
-			"aria-label": "Slide 2"
-		}
+		"user": "Daniela Manjarrez"
 	},
 	{
 		"imgSrc": "https://firebasestorage.googleapis.com/v0/b/juvetic-reto3.appspot.com/o/testimonio3%402x.png?alt=media&token=b16eb8a4-4972-41c7-8944-ba406e9ca6ad",
-		"imgAlt": "testimonio3",
 		"spanDescripcion": "Lugar pequeño y acogedor. El patio le da ese toque tan especial. La comida elaborada y con muy buena relación calidad-precio. Por poner una pega, el servicio un poco lento, pero quizás fueron las circunstancias del día.",
-		"user": "Indiria Cabana",
-		"divCarouselItem": {
-			"className": "carousel-item"
-		},
-		"carouselIndicactors": {
-			"type": "button",
-			"data-bs-target": "#carouselDarkVariant",
-			"aria-label": "Slide 3"
-		}
+		"user": "Indiria Cabana"
 	}
 ]

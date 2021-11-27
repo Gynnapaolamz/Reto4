@@ -1,12 +1,18 @@
-import React from "react";
-import DatosServicios from "../../consts json/Servicios/DatosServicios.json";
+import React, { useContext } from "react";
 import DatosEtiquetaLinkReserva from "../../consts json/Servicios/DatosEtiquetaLinkReserva.json";
 import EtiquetaLink from "../Creacion de Etiquetas HTML/EtiquetaLink";
+import ServiciosContext from "../../contexts/Servicios/ServiciosContext";
 const CardServicio = () => {
+	const { datosServicios } = useContext(ServiciosContext);
 	return (
 		<>
-			<div className="row">
-				{DatosServicios.map((servicio, index) => {
+			<div
+				className={`row ${
+					datosServicios.length === 1 &&
+					"d-flex align-items-center justify-content-center"
+				}`}
+			>
+				{datosServicios.map((servicio, index) => {
 					return (
 						<div key={index} className="col-lg-6 col-md-12 p-4">
 							<div className="card card-servicios">
@@ -28,6 +34,8 @@ const CardServicio = () => {
 									>
 										{servicio.descripcion}
 									</p>
+								</div>
+								<div className="card-footer pt-3 pb-3 px-3">
 									<EtiquetaLink objectArray={DatosEtiquetaLinkReserva} />
 								</div>
 							</div>
