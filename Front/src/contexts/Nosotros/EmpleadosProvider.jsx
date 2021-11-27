@@ -1,23 +1,19 @@
 import React, { useState } from "react";
 import EmpleadosContext from "./EmpleadosContext";
-import DatosTrabajadores from "../../consts json/Nosotros/DatosTrabajadores.json";
+// import DatosTrabajadores from "../../consts json/Nosotros/DatosTrabajadores.json";
 // import { getEmpleados } from "../../services/EmpleadoService/Empleado";
 
 const EmpleadosProvider = ({ children }) => {
-<<<<<<< Updated upstream
 	const getEmpleados = () => {
 		fetch("http://localhost:15937/api/empleado")
-			.then (response => response.json())
-			.then(data => {
+			.then((response) => response.json())
+			.then((data) => {
 				console.log("data --- ", data);
 			});
 	};
 
 	getEmpleados();
-	const [modalTrabajadores, setModalTrabajadores] = useState(DatosTrabajadores);
-=======
-	const [modalTrabajadores, setModalTrabajadores] = useState(getEmpleados);
->>>>>>> Stashed changes
+	const [modalTrabajadores, setModalTrabajadores] = useState();
 
 	const handleChangeModalTrabajadores = (valor) => {
 		setModalTrabajadores(valor);
