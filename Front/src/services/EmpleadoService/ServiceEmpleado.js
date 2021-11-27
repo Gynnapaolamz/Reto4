@@ -1,6 +1,6 @@
 const getEmpleados = () => {
 	let empleados = [];
-	fetch("http://localhost:15937/api/empleados")
+	fetch("http://localhost:15937/api/empleado")
 		.then((response) => response.json())
 		.then((data) => {
 			empleados = data;
@@ -8,4 +8,4 @@ const getEmpleados = () => {
 	return empleados;
 };
 
-export default getEmpleados;
+export { getEmpleados };
