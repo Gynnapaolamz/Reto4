@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import {
 	deleteEmpleado,
-	getEmpleados,
 	postEmpleado,
 	putEmpleado,
 } from "../services/EmpleadoService/ServiceEmpleado";
@@ -108,6 +107,7 @@ const sweetAlertBtnEliminarPlatillo = (
 		}
 	});
 };
+
 const sweetAlertPreguntarCerrarSesion = (logout, objeto) => {
 	MySwal.fire({
 		icon: "question",
@@ -137,6 +137,7 @@ const sweetAlertPreguntarCerrarSesion = (logout, objeto) => {
 		}
 	});
 };
+
 const sweetAlertPreguntarCerrarSesion1 = (logout) => {
 	MySwal.fire({
 		icon: "question",
@@ -165,6 +166,7 @@ const sweetAlertPreguntarCerrarSesion1 = (logout) => {
 		}
 	});
 };
+
 const sweetAlertPreguntarCrearEditarEliminarPlato = (
 	formularioEditCrear,
 	saberCamposVerdadero,
@@ -190,7 +192,6 @@ const sweetAlertPreguntarCrearEditarEliminarPlato = (
 			switch (formularioEditCrear) {
 				case "CREAR":
 					forEditCrear = "CREADO";
-					console.log("valido --- ", valido);
 					if (saberCamposVerdadero(valido)) {
 						const platoCreado = {
 							titulo: valido["nombrePlato"].name,
@@ -292,6 +293,7 @@ const sweetAlertPreguntarCrearEditarEliminarPlato = (
 		}
 	});
 };
+
 const sweetAlertPreguntarCrearEditarEliminarServicio = (
 	saberCamposVerdadero,
 	valido,
@@ -360,16 +362,13 @@ const sweetAlertPreguntarCrearEditarEliminarServicio = (
 						formularioOculto: false,
 						formularioEditCrear: "CREAR",
 					});
-
 					MySwal.fire({
 						icon: "success",
 						title: `EL SERVICIO FUE ${forEditCrear} CON EXITO`,
 						showConfirmButton: false,
 						timer: 1800,
 					});
-
 					break;
-
 				default:
 					break;
 			}
@@ -384,7 +383,6 @@ const sweetAlertPreguntarCrearEditarEliminarServicio = (
 				case "ELIMINAR":
 					forEditCrear = "ELIMINADO";
 					break;
-
 				default:
 					break;
 			}
@@ -468,80 +466,32 @@ const sweetAlertBtnConfirmarEmpleadoEditado = (
 			switch (formEmpleado.nameAction) {
 				case "CREAR":
 					console.log("CREAR");
-					// postEmpleado(
-					// 	modalTrabajadores,
-					// 	{
-					// 		Restaurante_id: 1,
-					// 		nombre: inputsModalTrabajadores.nombre,
-					// 		ocupacion: inputsModalTrabajadores.ocupacion,
-					// 		imagen: inputsModalTrabajadores.imagen,
-					// 	},
-					// 	handleChangeModalTrabajadores,
-					// 	inputsModalTrabajadores,
-					// 	handleInputsModalTrabajadores
-					// );
-					handleChangeModalTrabajadores([
-						...modalTrabajadores,
+					postEmpleado(
+						modalTrabajadores,
+						{
+							Restaurante_id: 1,
+							nombre: inputsModalTrabajadores.nombre,
+							ocupacion: inputsModalTrabajadores.ocupacion,
+							imagen: inputsModalTrabajadores.imagen,
+						},
+						handleChangeModalTrabajadores,
 						inputsModalTrabajadores,
-					]);
-					handleInputsModalTrabajadores({
-						id: "",
-						nombre: "",
-						ocupacion: "",
-						imagen: "",
-					});
-
-					sweetAlert(
-						"center",
-						"success",
-						"",
-						"EL EMPLEADO SE CREO CON ÉXITO",
-						false,
-						2500
+						handleInputsModalTrabajadores
 					);
 					break;
 				case "ACTUALIZAR":
 					console.log("ACTUALIZAR");
-					console.log("INPUTSmODALtRABAJADORES --- ", inputsModalTrabajadores);
-					// putEmpleado(
-					// 	{
-					// 		Restaurante_id: 1,
-					// 		nombre: inputsModalTrabajadores.nombre,
-					// 		ocupacion: inputsModalTrabajadores.ocupacion,
-					// 		imagen: inputsModalTrabajadores.imagen,
-					// 	},
-					// 	handleChangeModalTrabajadores,
-					// 	handleChangeFormEmpleado,
-					// 	handleInputsModalTrabajadores
-					// );
-					const auxModalTrabajadores = modalTrabajadores.map((trab) => {
-						if (inputsModalTrabajadores.id === trab.id) {
-							return {
-								...trab,
-								...inputsModalTrabajadores,
-							};
-						}
-						handleChangeModalTrabajadores(auxModalTrabajadores);
-						handleChangeFormEmpleado({
-							formVisibility: false,
-							nameAction: "CREAR",
-						});
-						handleInputsModalTrabajadores({
-							id: "",
-							nombre: "",
-							ocupacion: "",
-							imagen: "",
-						});
-						sweetAlert(
-							"center",
-							"success",
-							"",
-							"LOS CAMBIOS SE REALIZARON CON ÉXITO",
-							false,
-							2500
-						);
-						return trab;
-					});
+					putEmpleado(
+						{
+							Restaurante_id: 1,
+							nombre: inputsModalTrabajadores.nombre,
+							ocupacion: inputsModalTrabajadores.ocupacion,
+							imagen: inputsModalTrabajadores.imagen,
+						},
+						handleChangeModalTrabajadores,
+						handleChangeFormEmpleado,
+						handleInputsModalTrabajadores
+					);
 					break;
 				default:
 					break;
@@ -564,7 +514,8 @@ const sweetAlertBtnEliminarEmpleado = (
 	handleChangeModalTrabajadores,
 	modalTrabajadores,
 	trabajador,
-	handleInputsModalTrabajadores
+	handleInputsModalTrabajadores,
+	handleChangeFormEmpleado
 ) => {
 	MySwal.fire({
 		title: "¿DESEAS ELIMINAR ESTE EMPLEADO?",
@@ -577,30 +528,12 @@ const sweetAlertBtnEliminarEmpleado = (
 		cancelButtonText: "Cancelar",
 	}).then((result) => {
 		if (result.isConfirmed) {
-			// // deleteEmpleado(
-			// // 	modalTrabajadores,
-			// // 	handleInputsModalTrabajadores,
-			// // 	trabajador,
-			// // 	handleChangeModalTrabajadores
-			// );
-			handleChangeModalTrabajadores(
-				modalTrabajadores.filter((trab) => trab.id !== trabajador.id)
-			);
-
-			handleInputsModalTrabajadores({
-				id: "",
-				nombre: "",
-				ocupacion: "",
-				imagen: "",
-			});
-
-			sweetAlert(
-				"center",
-				"success",
-				"",
-				"EL EMPLEADO FUE ELIMINADO CON ÉXITO",
-				false,
-				2500
+			deleteEmpleado(
+				modalTrabajadores,
+				handleInputsModalTrabajadores,
+				trabajador,
+				handleChangeModalTrabajadores,
+				handleChangeFormEmpleado
 			);
 		} else {
 			sweetAlert(

@@ -6,7 +6,6 @@ import {
 	sweetAlertBtnConfirmarEmpleadoEditado,
 	sweetAlertBtnEliminarEmpleado,
 } from "../../../sweetAlert/SweetAlert";
-import { getEmpleados } from "../../../services/EmpleadoService/ServiceEmpleado";
 
 const ModalEmpleados = () => {
 	const initialInputModalTrabajadores = {
@@ -279,12 +278,9 @@ const ModalEmpleados = () => {
 														handleChangeModalTrabajadores,
 														modalTrabajadores,
 														trabajador,
-														handleInputChangeModalTrabajadores1
+														handleInputChangeModalTrabajadores1,
+														handleChangeFormEmpleado
 													);
-													handleChangeFormEmpleado({
-														formVisibility: false,
-														nameAction: "CREAR",
-													});
 												}}
 											>
 												<span className="text">ELIMINAR</span>
