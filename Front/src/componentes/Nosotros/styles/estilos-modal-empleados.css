@@ -1,5 +1,17 @@
 /* ESTILOS BOTÓN ELIMINAR EMPLEADO  */
 .buttonEliminarEmpleado {
+	width: 9.5rem;
+	height: 2.5rem;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	background: red;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+	background: #e62222;
+}
+.buttonEliminarTestimonio {
 	width: 100%;
 	height: 2.5rem;
 	cursor: pointer;
@@ -13,17 +25,28 @@
 }
 
 .buttonEliminarEmpleado,
-.buttonEliminarEmpleado span {
+.buttonEliminarEmpleado span,
+.buttonEliminarTestimonio,
+.buttonEliminarTestimonio span {
 	transition: 200ms;
 }
 
-.buttonEliminarEmpleado .text {
-	transform: translateX(35px);
+.buttonEliminarEmpleado .text,
+.buttonEliminarTestimonio .text {
 	color: white;
 	font-weight: bold;
 }
 
-.buttonEliminarEmpleado .icon {
+.buttonEliminarTestimonio .text {
+	transform: translateX(22px);
+}
+
+.buttonEliminarEmpleado .text {
+	transform: translateX(25px);
+}
+
+.buttonEliminarEmpleado .icon,
+.buttonEliminarTestimonio .icon {
 	position: absolute;
 	border-left: 1px solid #c41b1b;
 	transform: translateX(110px);
@@ -34,7 +57,8 @@
 	justify-content: center;
 }
 
-.buttonEliminarEmpleado svg {
+.buttonEliminarEmpleado svg,
+.buttonEliminarTestimonio svg {
 	width: 15px;
 	fill: #eee;
 }
@@ -43,21 +67,25 @@
 	background: #ff3636;
 }
 
-.buttonEliminarEmpleado:hover .text {
+.buttonEliminarEmpleado:hover .text,
+.buttonEliminarTestimonio:hover .text {
 	color: transparent;
 }
 
-.buttonEliminarEmpleado:hover .icon {
-	width: 150px;
+.buttonEliminarEmpleado:hover .icon,
+.buttonEliminarTestimonio:hover .icon {
+	width: 145px;
 	border-left: none;
 	transform: translateX(0);
 }
 
-.buttonEliminarEmpleado:focus {
+.buttonEliminarEmpleado:focus,
+.buttonEliminarTestimonio:focus {
 	outline: none;
 }
 
-.buttonEliminarEmpleado:active .icon svg {
+.buttonEliminarEmpleado:active .icon svg,
+.buttonEliminarTestimonio:active .icon svg {
 	transform: scale(0.8);
 }
 

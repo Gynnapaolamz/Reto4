@@ -225,7 +225,7 @@ const SideBar = () => {
 									alt="profileImg"
 								/>
 							</div>
-							<div className="name-job">
+							<div className="name-job" style={{ marginLeft: "15px" }}>
 								<div className="profile_name">Prem Shahi</div>
 								<div className="job">Web Desginer</div>
 							</div>
@@ -234,7 +234,7 @@ const SideBar = () => {
 								onClick={() => {
 									sweetAlertPreguntarCerrarSesion1(logout);
 								}}
-								style={{ marginLeft: "26px" }}
+								style={{ marginLeft: "120px" }}
 							/>
 						</div>
 					</li>

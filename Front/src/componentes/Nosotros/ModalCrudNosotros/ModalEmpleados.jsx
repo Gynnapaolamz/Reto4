@@ -6,6 +6,7 @@ import {
 	sweetAlertBtnConfirmarEmpleadoEditado,
 	sweetAlertBtnEliminarEmpleado,
 } from "../../../sweetAlert/SweetAlert";
+import { getEmpleados } from "../../../services/EmpleadoService/ServiceEmpleado";
 
 const ModalEmpleados = () => {
 	const initialInputModalTrabajadores = {
@@ -163,6 +164,7 @@ const ModalEmpleados = () => {
 												e.target.value
 											)
 										}
+										style={{ objectFit: "cover" }}
 									/>
 								</div>
 								<div className="">
@@ -237,7 +239,6 @@ const ModalEmpleados = () => {
 
 							<div className="row d-flex justify-content-evenly">
 								{modalTrabajadores.map((trabajador, index) => {
-									
 									return (
 										<div
 											key={index}

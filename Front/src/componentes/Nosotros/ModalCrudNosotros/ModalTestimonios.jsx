@@ -278,7 +278,7 @@ const ModalTestimonios = () => {
 														</div>
 														<div className="col-lg-6">
 															<button
-																className="noselect buttonEliminarEmpleado"
+																className="noselect buttonEliminarTestimonio"
 																type="button"
 																onClick={(e) => {
 																	e.preventDefault();

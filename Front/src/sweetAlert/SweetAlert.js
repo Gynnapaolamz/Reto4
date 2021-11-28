@@ -4,6 +4,12 @@ import {
 } from "../localStorage/LocalStorage";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import {
+	deleteEmpleado,
+	getEmpleados,
+	postEmpleado,
+	putEmpleado,
+} from "../services/EmpleadoService/ServiceEmpleado";
 
 const MySwal = withReactContent(Swal);
 
@@ -462,16 +468,18 @@ const sweetAlertBtnConfirmarEmpleadoEditado = (
 			switch (formEmpleado.nameAction) {
 				case "CREAR":
 					console.log("CREAR");
-					fetch("http://localhost:15937/api/empleado/", {
-						method: "POST",
-						body: {
-							nombre: inputsModalTrabajadores.nombre,
-							ocupacion: inputsModalTrabajadores.ocupacion,
-							imagen: inputsModalTrabajadores.imagen
-						}, headers: new Headers()
-					})
-						.then((response) => { console.log("response ", response) })
-					//.then()
+					// postEmpleado(
+					// 	modalTrabajadores,
+					// 	{
+					// 		Restaurante_id: 1,
+					// 		nombre: inputsModalTrabajadores.nombre,
+					// 		ocupacion: inputsModalTrabajadores.ocupacion,
+					// 		imagen: inputsModalTrabajadores.imagen,
+					// 	},
+					// 	handleChangeModalTrabajadores,
+					// 	inputsModalTrabajadores,
+					// 	handleInputsModalTrabajadores
+					// );
 					handleChangeModalTrabajadores([
 						...modalTrabajadores,
 						inputsModalTrabajadores,
@@ -482,6 +490,7 @@ const sweetAlertBtnConfirmarEmpleadoEditado = (
 						ocupacion: "",
 						imagen: "",
 					});
+
 					sweetAlert(
 						"center",
 						"success",
@@ -490,41 +499,49 @@ const sweetAlertBtnConfirmarEmpleadoEditado = (
 						false,
 						2500
 					);
-
 					break;
 				case "ACTUALIZAR":
 					console.log("ACTUALIZAR");
 					console.log("INPUTSmODALtRABAJADORES --- ", inputsModalTrabajadores);
-
-					const auxModalTrabajadores = modalTrabajadores.map((trab, index) => {
+					// putEmpleado(
+					// 	{
+					// 		Restaurante_id: 1,
+					// 		nombre: inputsModalTrabajadores.nombre,
+					// 		ocupacion: inputsModalTrabajadores.ocupacion,
+					// 		imagen: inputsModalTrabajadores.imagen,
+					// 	},
+					// 	handleChangeModalTrabajadores,
+					// 	handleChangeFormEmpleado,
+					// 	handleInputsModalTrabajadores
+					// );
+					const auxModalTrabajadores = modalTrabajadores.map((trab) => {
 						if (inputsModalTrabajadores.id === trab.id) {
 							return {
 								...trab,
 								...inputsModalTrabajadores,
 							};
 						}
+						handleChangeModalTrabajadores(auxModalTrabajadores);
+						handleChangeFormEmpleado({
+							formVisibility: false,
+							nameAction: "CREAR",
+						});
+						handleInputsModalTrabajadores({
+							id: "",
+							nombre: "",
+							ocupacion: "",
+							imagen: "",
+						});
+						sweetAlert(
+							"center",
+							"success",
+							"",
+							"LOS CAMBIOS SE REALIZARON CON ÉXITO",
+							false,
+							2500
+						);
 						return trab;
 					});
-
-					handleChangeModalTrabajadores(auxModalTrabajadores);
-					handleChangeFormEmpleado({
-						formVisibility: false,
-						nameAction: "CREAR",
-					});
-					handleInputsModalTrabajadores({
-						id: "",
-						nombre: "",
-						ocupacion: "",
-						imagen: "",
-					});
-					sweetAlert(
-						"center",
-						"success",
-						"",
-						"LOS CAMBIOS SE REALIZARON CON ÉXITO",
-						false,
-						2500
-					);
 					break;
 				default:
 					break;
@@ -560,42 +577,31 @@ const sweetAlertBtnEliminarEmpleado = (
 		cancelButtonText: "Cancelar",
 	}).then((result) => {
 		if (result.isConfirmed) {
-			fetch("http://localhost:15937/api/empleado/" + trabajador.id, {
-				method: "DELETE",
-			})
-				.then((response) => response.json())
-				.then((data) => {
-					handleChangeModalTrabajadores(
-						modalTrabajadores.filter((trab) => trab.id !== trabajador.id)
-					);
+			// // deleteEmpleado(
+			// // 	modalTrabajadores,
+			// // 	handleInputsModalTrabajadores,
+			// // 	trabajador,
+			// // 	handleChangeModalTrabajadores
+			// );
+			handleChangeModalTrabajadores(
+				modalTrabajadores.filter((trab) => trab.id !== trabajador.id)
+			);
 
-					handleInputsModalTrabajadores({
-						id: "",
-						nombre: "",
-						ocupacion: "",
-						imagen: "",
-					});
+			handleInputsModalTrabajadores({
+				id: "",
+				nombre: "",
+				ocupacion: "",
+				imagen: "",
+			});
 
-					sweetAlert(
-						"center",
-						"success",
-						"",
-						"EL EMPLEADO FUE ELIMINADO CON ÉXITO",
-						false,
-						2500
-					);
-
-				}).catch(error => {
-					sweetAlert(
-						"center",
-						"success",
-						"",
-						error,
-						false,
-						2500
-					);
-				});
-
+			sweetAlert(
+				"center",
+				"success",
+				"",
+				"EL EMPLEADO FUE ELIMINADO CON ÉXITO",
+				false,
+				2500
+			);
 		} else {
 			sweetAlert(
 				"center",
